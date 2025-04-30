@@ -137,5 +137,54 @@ class ProfileProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  final Set<int> _favoriteIndexes = {};
+
+  bool isFavorites(int index) => _favoriteIndexes.contains(index);
+
+  void toggleFavorites(int index) {
+    if (_favoriteIndexes.contains(index)) {
+      _favoriteIndexes.remove(index);
+    } else {
+      _favoriteIndexes.add(index);
+    }
+    notifyListeners();
+  }
+
+
+  final List<Map<String, dynamic>> _profiles = [
+    {
+      'name': 'Monica',
+      'age': 24,
+      'location': 'Kazan, Russia',
+      'image': 'image/girl.jpg'
+    },
+    {
+      'name': 'Lena',
+      'age': 26,
+      'location': 'Moscow, Russia',
+      'image': 'image/girl1.png'
+    },
+    {
+      'name': 'Sara',
+      'age': 23,
+      'location': 'Berlin, Germany',
+      'image': 'image/girl2.png'
+    },
+    {
+      'name': 'Daria',
+      'age': 23,
+      'location': 'Berlin, Germany',
+      'image': 'image/girl3.png'
+    },
+    {
+      'name': 'Alina',
+      'age': 23,
+      'location': 'Berlin, Germany',
+      'image': 'image/girl4.png'
+    },
+
+
+  ];
+  List<Map<String, dynamic>> get profiles => _profiles;
 
 }

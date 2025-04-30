@@ -26,19 +26,41 @@ class CustomBottomNavBar extends StatelessWidget {
         if (index == 0) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Home()),
+            MaterialPageRoute(
+                builder: (context) => Home(
+                      profile: {},
+                      index: index,
+                    )),
           );
         } else if (index == 1) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Home()),
+            MaterialPageRoute(
+                builder: (context) => Home(
+                      profile: {},
+                      index: index,
+                    )),
           );
         } else if (index == 2) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Home()),
+            MaterialPageRoute(
+                builder: (context) => Home(
+                      profile: {},
+                      index: index,
+                    )),
           );
         } else if (index == 3) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Home(
+                  profile: {},
+                  index: index,
+                )),
+          );
+        }
+        else if (index == 4) {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => LandingPage()),
@@ -49,13 +71,55 @@ class CustomBottomNavBar extends StatelessWidget {
       unselectedItemColor: Colors.grey,
       showUnselectedLabels: true,
       type: BottomNavigationBarType.fixed,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home_filled, size: 40,), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.star, size: 40,), label: 'Matches'),
+      items: [
         BottomNavigationBarItem(
-            icon: Icon(Icons.message_rounded,size: 40,), label: 'Chats',),
+          icon: Image.asset(
+            navigationProvider.selectedIndex == 0
+                ? 'image/home-2.png'
+                : 'image/home-3.png',
+            width: 24,
+            height: 24,
+          ),
+          label: 'Home',
+        ),
+
         BottomNavigationBarItem(
-            icon: Icon(Icons.person_rounded, size: 40,), label: 'Profile'),
+            icon: Image.asset(
+              navigationProvider.selectedIndex == 1
+                  ? 'image/send-2 (1).png'
+                  : 'image/send-2.png',
+              width: 24,
+              height: 24,
+            ),
+            label: 'Forum'),
+        BottomNavigationBarItem(
+          icon: Image.asset(
+            navigationProvider.selectedIndex == 2
+                ? 'image/calendar (1).png'
+                : 'image/calendar.png',
+            width: 24,
+            height: 24,
+          ),
+          label: 'Events',
+        ),
+        BottomNavigationBarItem(
+            icon: Image.asset(
+              navigationProvider.selectedIndex == 3
+                  ? 'image/voice-square.png'
+                  : 'image/Chat.png',
+              width: 24,
+              height: 24,
+            ),
+            label: 'Chats'),
+        BottomNavigationBarItem(
+            icon: Image.asset(
+              navigationProvider.selectedIndex == 4
+                  ? 'image/profile.png'
+                  : 'image/frame.png',
+              width: 24,
+              height: 24,
+            ),
+            label: 'Profile'),
       ],
     );
   }

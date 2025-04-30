@@ -24,6 +24,8 @@ const des= Color(0xFF808080);
 const locat =  Color(0xFFA5D5E3);
 const singupin = Color(0xFF960FFF); //C3DE6D
 const login = Color(0xFFC3DE6D);
+const box = Color(0xFFB5E66F);
+
 
 class Font{
   static final TextStyle simpleFont = GoogleFonts.openSans(
@@ -174,7 +176,7 @@ class Font{
   );
   static final TextStyle profilename = GoogleFonts.openSans(
     color: Colors.white,
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: FontWeight.bold,
     shadows: [Shadow(blurRadius: 5, color: Colors.black)],
   );
@@ -183,6 +185,11 @@ class Font{
     fontSize: 20,
     fontWeight: FontWeight.w700,
     shadows: [Shadow(blurRadius: 5, color: Colors.black)],
-
+  );
+  static final TextStyle profileFollow = GoogleFonts.openSans(
+    color: appbackgroundcolor,
+    fontSize: 15,
+    fontWeight: FontWeight.w600,
+    shadows: [Shadow(blurRadius: 5, color: Colors.black)],
   );
 }
