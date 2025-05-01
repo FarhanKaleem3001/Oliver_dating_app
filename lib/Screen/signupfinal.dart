@@ -4,6 +4,8 @@ import 'package:dating_site/Utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'photopage.dart';
+
 class SignUpFinal extends StatefulWidget {
   const SignUpFinal({super.key});
 
@@ -20,151 +22,159 @@ class _SignUpFinalState extends State<SignUpFinal> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            child:
-            Column(
+            child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(40),
-                  child: Row(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-
-                      CircleAvatar(
-                        radius: 16,
-                        backgroundColor: Colors.grey.shade200,
-                        child: Text(
-                          '1',
-                          style: TextStyle(color: Colors.grey.shade700, fontWeight: FontWeight.bold),
+                      Text("Discover like-minded people.",
+                          style: Font.boldFont1),
+                      const SizedBox(height: 20),
+                      //Center(child: Image.asset('image/profile.jpg', height: 100,)),
+                      Text(
+                        'Share your interest, passions and hobbies. We will connect you with people who share your enthusiasm.',
+                        style: Font.normalFont,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextField(
+                        controller: searchController,
+                        onChanged: (value) {
+                          Provider.of<ProfileProvider>(context, listen: false)
+                              .updateSearchQuery(value);
+                        },
+                        decoration: InputDecoration(
+                          hintText: "Search Interest...",
+                          hintStyle: TextStyle(color: hintcolor),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30)),
+                          filled: true,
+                          fillColor: Colors.white,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide:
+                                BorderSide(color: Colors.black54, width: 1),
+                          ),
+                          prefixIcon: Icon(Icons.search, color: Colors.black38),
                         ),
+                        keyboardType: TextInputType.text,
                       ),
 
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Consumer<ProfileProvider>(
+                        builder: (context, chipProvider, _) {
+                          final interests = [
+                            'Travel',
+                            'Cooking',
+                            'Yoga',
+                            'Gaming',
+                            'Movie',
+                            'Photography',
+                            'Music',
+                            'Pets',
+                            'Fashion',
+                            'Reading',
+                            'Dancing',
+                            'Art',
+                            'Drawing',
+                            'Writing',
+                            'Blogging',
+                            'Hiking',
+                            'Cycling',
+                            'Fitness',
+                            'Meditation',
+                            'Crafting',
+                            'Technology',
+                            'DIY Projects',
+                            'Gardening',
+                            'Board Games',
+                            'Collecting',
+                            'Skating',
+                            'Swimming',
+                            'Astronomy',
+                            'Karaoke',
+                            'Language Learning',
+                            'Podcasting',
+                            'Investing',
+                            'Public Speaking',
+                          ];
 
-                      Container(
-                        width: 100,
-                        height: 4,
-                        color: Colors.grey.shade300,
+                          return Wrap(
+                            spacing: 10,
+                            runSpacing: 10,
+                            children: interests
+                                .map((interest) => buildChip(interest, context))
+                                .toList(),
+                          );
+                        },
                       ),
 
-
-                      CircleAvatar(
-                        radius: 16,
-                        backgroundColor: Colors.grey.shade200,
-                        child: Text(
-                          '2',
-                          style: TextStyle(color: Colors.grey.shade700, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-
-
-                      Container(
-                        width: 100,
-                        height: 6,
-                        color: login,
-                      ),
-
-
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundColor: login,
-                        child: Text(
-                          '3',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                      const SizedBox(height: 30),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LandingPage()));
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: login,
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 15),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: Text(
+                                "SKIP",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => PhotoPage()));
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: login,
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 15),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              child: Text(
+                                "NEXT",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
-
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text("Interested In", style: Font.boldFont1),
-                  const SizedBox(height: 20),
-                  //Center(child: Image.asset('image/profile.jpg', height: 100,)),
-                  Text(
-                    'Share your interest, passions and hobbies. We will connect you with people who share your enthusiasm',
-                    style: Font.normalFont,
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  TextField(
-                    controller: searchController,
-                    onChanged: (value) {
-                      Provider.of<ProfileProvider>(context, listen: false)
-                          .updateSearchQuery(value);
-                    },
-                    decoration: InputDecoration(
-                      hintText: "Search Interest...",
-                      hintStyle: TextStyle(color: hintcolor),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      filled: true,
-                      fillColor: Colors.white,
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(color: Colors.black54, width: 1),
-                      ),
-                      prefixIcon: Icon(Icons.search, color: Colors.black38),
-                    ),
-                    keyboardType: TextInputType.text,
-                  ),
-
-                  SizedBox(height: 20,),
-                  Consumer<ProfileProvider>(
-                    builder: (context, chipProvider, _) {
-                      final interests = [
-                        'Travel', 'Cooking', 'Yoga', 'Gaming', 'Movie', 'Photography',
-                        'Music', 'Pets', 'Fashion', 'Reading', 'Dancing', 'Art', 'Drawing',
-                        'Writing', 'Blogging', 'Hiking', 'Cycling', 'Fitness', 'Meditation',
-                        'Crafting', 'Technology', 'DIY Projects', 'Gardening', 'Board Games',
-                        'Collecting', 'Skating', 'Swimming', 'Astronomy', 'Karaoke',
-                        'Language Learning', 'Podcasting', 'Investing', 'Public Speaking',
-                      ];
-
-                      return Wrap(
-                        spacing: 10,
-                        runSpacing: 10,
-                        children: interests.map((interest) => buildChip(interest, context)).toList(),
-                      );
-                    },
-                  ),
-
-
-                  const SizedBox(height: 30),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LandingPage()));
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: login,
-                        padding: const EdgeInsets.symmetric(vertical: 15),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Text(
-                        "FINISH",
-                        style: TextStyle(
-                            color: Colors.black54,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                ],
-              ),
-            ),
               ],
             ),
           ),
@@ -172,6 +182,7 @@ class _SignUpFinalState extends State<SignUpFinal> {
       ),
     );
   }
+
   Widget buildChip(String label, BuildContext context) {
     final chipProvider = Provider.of<ProfileProvider>(context);
     final isSelected = chipProvider.isSelected(label);
@@ -195,5 +206,4 @@ class _SignUpFinalState extends State<SignUpFinal> {
       ),
     );
   }
-
 }

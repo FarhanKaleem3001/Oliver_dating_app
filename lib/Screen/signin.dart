@@ -3,6 +3,8 @@
 import 'dart:ui';
 
 import 'package:dating_site/Provider/profileProvider.dart';
+import 'package:dating_site/Screen/home.dart';
+import 'package:dating_site/Screen/landingpage.dart';
 import 'package:dating_site/Screen/signup.dart';
 import 'package:dating_site/Utils/color.dart';
 import 'package:flutter/material.dart';
@@ -52,33 +54,40 @@ class _SignInState extends State<SignIn> {
                   : const SizedBox();
             },
           ),
+         
 
-
-          Center(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.black87.withOpacity(0.7),
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.white.withOpacity(0.3)),
+          Padding(
+            padding: const EdgeInsets.only(top: 320),
+            child: Expanded(
+              flex: 6,
+              child: Container(
+                decoration:  BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.white.withOpacity(0.3)),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
-                  child: SingleChildScrollView(
+                ),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 40),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Sign In", style: Font.boldFont3),
+                        Text("Sign In", style: Font.boldFont1),
                         SizedBox(height: 10),
-                        Text('If you don’t have an account register.', style: Font.normalFont5),
+                        Text('If you don’t have an account register.', style: Font.normalFont),
                         Row(
                           children: [
-                            Text('You can ', style: Font.normalFont5),
-                            Text(' Register here ! ', style: TextStyle(color: login, fontSize: 15, fontWeight: FontWeight.bold)),
+                            Text('You can ', style: Font.normalFont),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                              },
+                                child: Text(' Register here ! ', style: TextStyle(color: login, fontSize: 15, fontWeight: FontWeight.bold))),
                           ],
                         ),
                         const SizedBox(height: 20),
@@ -92,10 +101,10 @@ class _SignInState extends State<SignIn> {
                         const SizedBox(height: 8),
                         TextField(
                           controller: emailController,
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: category),
                           decoration: InputDecoration(
                             hintText: "Enter Your Email",
-                            hintStyle: TextStyle(color: Colors.white70),
+                            hintStyle: TextStyle(color: hintcolor),
                             border: const UnderlineInputBorder(),
                             enabledBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.grey),
@@ -119,11 +128,11 @@ class _SignInState extends State<SignIn> {
                           builder: (context, passwordProvider, child) {
                             return TextField(
                               controller: passwordController,
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: category),
                               obscureText: !passwordProvider.isVisible,
                               decoration: InputDecoration(
-                                hintText: "  Enter Your Password",
-                                hintStyle: TextStyle(color: Colors.white70),
+                                hintText: "Enter Your Password",
+                                hintStyle: TextStyle(color: hintcolor),
                                 border: const UnderlineInputBorder(),
                                 enabledBorder: const UnderlineInputBorder(
                                   borderSide: BorderSide(color: Colors.grey),
@@ -155,12 +164,12 @@ class _SignInState extends State<SignIn> {
                                       onChanged: rememberProvider.toggleCheckbox,
                                       activeColor: login,
                                     ),
-                                    Text('Remember me', style: Font.normalFont5),
+                                    Text('Remember me', style: TextStyle(color: login, fontSize: 15, fontWeight: FontWeight.w400)),
                                   ],
                                 );
                               },
                             ),
-                            Text('Forgot Password?', style: Font.normalFont5),
+                            Text('Forgot Password?', style: TextStyle(color: login, fontSize: 15, fontWeight: FontWeight.w400)),
                           ],
                         ),
                         const SizedBox(height: 30),
@@ -168,7 +177,7 @@ class _SignInState extends State<SignIn> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage()));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: login,
@@ -177,7 +186,7 @@ class _SignInState extends State<SignIn> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            child: Text("LOGIN", style: TextStyle(color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 20)),
+                            child: Text("LOGIN", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20)),
                           ),
                         ),
                         const SizedBox(height: 10),

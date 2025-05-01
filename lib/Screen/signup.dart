@@ -1,3 +1,4 @@
+import 'package:dating_site/Screen/signin.dart';
 import 'package:dating_site/Screen/signupnext.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -44,12 +45,7 @@ class _SignUpState extends State<SignUp> {
     {"code": "HR", "name": "Croatia", "flag": "🇭🇷", "dial_code": "+385"},
     {"code": "CU", "name": "Cuba", "flag": "🇨🇺", "dial_code": "+53"},
     {"code": "CY", "name": "Cyprus", "flag": "🇨🇾", "dial_code": "+357"},
-    {
-      "code": "CZ",
-      "name": "Czech Republic",
-      "flag": "🇨🇿",
-      "dial_code": "+420"
-    },
+    {"code": "CZ", "name": "Czech Republic", "flag": "🇨🇿", "dial_code": "+420"},
     {"code": "DK", "name": "Denmark", "flag": "🇩🇰", "dial_code": "+45"},
     {"code": "EG", "name": "Egypt", "flag": "🇪🇬", "dial_code": "+20"},
     {"code": "FR", "name": "France", "flag": "🇫🇷", "dial_code": "+33"},
@@ -91,12 +87,7 @@ class _SignUpState extends State<SignUp> {
     {"code": "CH", "name": "Switzerland", "flag": "🇨🇭", "dial_code": "+41"},
     {"code": "TH", "name": "Thailand", "flag": "🇹🇭", "dial_code": "+66"},
     {"code": "TR", "name": "Turkey", "flag": "🇹🇷", "dial_code": "+90"},
-    {
-      "code": "GB",
-      "name": "United Kingdom",
-      "flag": "🇬🇧",
-      "dial_code": "+44"
-    },
+    {"code": "GB", "name": "United Kingdom", "flag": "🇬🇧", "dial_code": "+44"},
     {"code": "US", "name": "United States", "flag": "🇺🇸", "dial_code": "+1"},
   ];
 
@@ -104,62 +95,43 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     final loginProvider = Provider.of<ProfileProvider>(context);
     return Scaffold(
-      body: SafeArea(
-          child: Column(
-              children: [
-        Padding(
-          padding: const EdgeInsets.all(40),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 20,
-                backgroundColor: login,
-                child: Text(
-                  '1',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+      body: Stack(
+        children: [
+          Consumer<VideoProvider>(
+            builder: (context, provider, _) {
+              return provider.controller.value.isInitialized
+                  ? SizedBox.expand(
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  child: SizedBox(
+                    width: provider.controller.value.size.width,
+                    height: provider.controller.value.size.height,
+                    child: VideoPlayer(provider.controller),
+                  ),
                 ),
-              ),
-              Container(
-                width: 100,
-                height: 4,
-                color: Colors.grey.shade300,
-              ),
-              CircleAvatar(
-                radius: 16,
-                backgroundColor: Colors.grey.shade200,
-                child: Text(
-                  '2',
-                  style: TextStyle(
-                      color: Colors.grey.shade700, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                width: 100,
-                height: 4,
-                color: Colors.grey.shade300,
-              ),
-              CircleAvatar(
-                radius: 16,
-                backgroundColor: Colors.grey.shade200,
-                child: Text(
-                  '3',
-                  style: TextStyle(
-                      color: Colors.grey.shade700, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
+              )
+                  : const SizedBox();
+            },
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Center(
+
+
+          Padding(
+            padding: const EdgeInsets.only(top: 250),
+            child: Expanded(
+              flex: 6,
+              child: Container(
+                decoration:  BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: Colors.white.withOpacity(0.3)),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 40),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,12 +154,17 @@ class _SignUpState extends State<SignUp> {
                               'You can ',
                               style: Font.normalFont,
                             ),
-                            Text(
-                              ' Login here ! ',
-                              style: TextStyle(
-                                  color: login,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn()));
+                              },
+                              child: Text(
+                                ' Login here ! ',
+                                style: TextStyle(
+                                    color: login,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ],
                         ),
@@ -227,7 +204,7 @@ class _SignUpState extends State<SignUp> {
                                 borderSide: BorderSide(color: login),
                               ),
                               contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
+                              const EdgeInsets.symmetric(horizontal: 10),
                             ),
                             keyboardType: TextInputType.emailAddress,
                           ),
@@ -258,7 +235,7 @@ class _SignUpState extends State<SignUp> {
                               width: 140,
                               child: Container(
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 8),
+                                const EdgeInsets.symmetric(horizontal: 8),
                                 decoration: BoxDecoration(
                                   border: Border.all(color: Colors.grey),
                                   borderRadius: BorderRadius.circular(5),
@@ -288,7 +265,7 @@ class _SignUpState extends State<SignUp> {
                                             Text(
                                               country["dial_code"]!,
                                               style:
-                                                  const TextStyle(fontSize: 14),
+                                              const TextStyle(fontSize: 14),
                                               overflow: TextOverflow.ellipsis,
                                             ),
                                           ],
@@ -317,7 +294,7 @@ class _SignUpState extends State<SignUp> {
                                             Text(
                                               country["dial_code"]!,
                                               style:
-                                                  const TextStyle(fontSize: 14),
+                                              const TextStyle(fontSize: 14),
                                               overflow: TextOverflow.ellipsis,
                                             ),
                                           ],
@@ -340,7 +317,7 @@ class _SignUpState extends State<SignUp> {
                                     border: const UnderlineInputBorder(),
                                     enabledBorder: const UnderlineInputBorder(
                                       borderSide:
-                                          BorderSide(color: Colors.grey),
+                                      BorderSide(color: Colors.grey),
                                     ),
                                     focusedBorder: const UnderlineInputBorder(
                                       borderSide: BorderSide(color: login),
@@ -399,7 +376,7 @@ class _SignUpState extends State<SignUp> {
                                       color: Colors.grey,
                                     ),
                                     onPressed:
-                                        passwordProvider.toggleVisibility,
+                                    passwordProvider.toggleVisibility,
                                   ),
                                 ),
                               );
@@ -427,7 +404,7 @@ class _SignUpState extends State<SignUp> {
                             child: Text(
                               "NEXT",
                               style: TextStyle(
-                                  color: Colors.black54,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20),
                             ),
@@ -439,12 +416,11 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
               ),
-            ],
+            ),
           ),
-        ),
-      ]
-          )
+        ],
       ),
+
     );
   }
 }

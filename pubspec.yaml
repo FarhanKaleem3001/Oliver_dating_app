@@ -73,7 +73,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - image/
-    - video/
+    - image/vdio2.mp4
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

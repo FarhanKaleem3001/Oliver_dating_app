@@ -23,7 +23,7 @@ const link = Color(0xFF6195C3);
 const des= Color(0xFF808080);
 const locat =  Color(0xFFA5D5E3);
 const singupin = Color(0xFF960FFF); //C3DE6D
-const login = Color(0xFFC3DE6D);
+const login = Color(0xFFA4C637); //Color(0xFFA4C637)
 const box = Color(0xFFB5E66F);
 
 
@@ -59,7 +59,7 @@ class Font{
     fontWeight: FontWeight.bold,
   );
   static final TextStyle normalFont = GoogleFonts.openSans(
-    color: appfontcolor,
+    color: Colors.black87,
     fontSize: 15,
     fontWeight: FontWeight.w400,
   );
