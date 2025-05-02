@@ -7,7 +7,10 @@ import 'package:provider/provider.dart';
 import 'photopage.dart';
 
 class SignUpFinal extends StatefulWidget {
-  const SignUpFinal({super.key});
+  final Map<String, dynamic> profile;
+  final int index;
+  const SignUpFinal({required this.profile, required this.index});
+
 
   @override
   State<SignUpFinal> createState() => _SignUpFinalState();
@@ -151,7 +154,7 @@ class _SignUpFinalState extends State<SignUpFinal> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => PhotoPage()));
+                                        builder: (context) => PhotoPage(profile: {}, index: widget.index,)));
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: login,

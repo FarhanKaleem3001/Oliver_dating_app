@@ -6,15 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'Provider/navigationProvider.dart';
+import 'Provider/tabprovider.dart';
 import 'Screen/signin.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp(index: 0, profile: {},));
 }
 
+
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Map<String, dynamic> profile;
+  final int index;
+  const MyApp({required this.profile, required this.index});
+
 
 
   @override
@@ -25,10 +30,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_)=>LocationProvider()),
         ChangeNotifierProvider(create: (_)=>VideoProvider()),
         ChangeNotifierProvider(create: (_)=>NavigationProvider()),
+        ChangeNotifierProvider(create: (_)=>TabProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-       home: const SignIn(),
+       home: SignIn(profile: const {}, index: index,),
        // home: const LandingPage(),
       ),
     );

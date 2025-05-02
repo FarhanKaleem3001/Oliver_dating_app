@@ -15,7 +15,10 @@ import 'package:video_player/video_player.dart';
 import '../Provider/videoProvider.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+  final Map<String, dynamic> profile;
+  final int index;
+  const SignIn({required this.profile, required this.index});
+
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -85,7 +88,7 @@ class _SignInState extends State<SignIn> {
                             Text('You can ', style: Font.normalFont),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp(index: widget.index,profile: {},)));
                               },
                                 child: Text(' Register here ! ', style: TextStyle(color: login, fontSize: 15, fontWeight: FontWeight.bold))),
                           ],

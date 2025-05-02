@@ -180,11 +180,34 @@ class Font{
     fontWeight: FontWeight.bold,
     shadows: [Shadow(blurRadius: 5, color: Colors.black)],
   );
+  static final TextStyle profilename1 = GoogleFonts.openSans(
+    color: Colors.white,
+    fontSize: 28,
+    fontWeight: FontWeight.bold,
+    shadows: [Shadow(blurRadius: 5, color: Colors.black)],
+  );
   static final TextStyle profileadd = GoogleFonts.openSans(
     color: appbackgroundcolor,
     fontSize: 20,
     fontWeight: FontWeight.w700,
     shadows: [Shadow(blurRadius: 5, color: Colors.black)],
+  );
+  static final TextStyle profileadd1 = GoogleFonts.openSans(
+    color: appbackgroundcolor,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    shadows: [Shadow(blurRadius: 5, color: Colors.black)],
+  );
+  static final TextStyle profileadd2 = GoogleFonts.openSans(
+    color: appbackgroundcolor,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    shadows: [Shadow(blurRadius: 5, color: Colors.black)],
+  );
+  static final TextStyle profileabout3 = GoogleFonts.openSans(
+    color: Colors.black87,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
   );
   static final TextStyle profileFollow = GoogleFonts.openSans(
     color: appbackgroundcolor,

@@ -46,16 +46,14 @@ class ProfileProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  File? _pickedImage;
-
-  File? get pickedImage => _pickedImage;
+  List<File> pickedImages = [];
 
   final ImagePicker _picker = ImagePicker();
 
   Future<void> pickImageFromGallery() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
-      _pickedImage = File(pickedFile.path);
+      pickedImages.add(File(pickedFile.path));
       notifyListeners();
     }
   }
@@ -63,15 +61,21 @@ class ProfileProvider with ChangeNotifier {
   Future<void> pickImageFromCamera() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.camera);
     if (pickedFile != null) {
-      _pickedImage = File(pickedFile.path);
+      pickedImages.add(File(pickedFile.path));
       notifyListeners();
     }
   }
 
-  void removeImage() {
-    _pickedImage = null;
+  void removeImage(int index) {
+    pickedImages.removeAt(index);
     notifyListeners();
   }
+
+  void clearAllImages() {
+    pickedImages.clear();
+    notifyListeners();
+  }
+
 
   List<String> _belgiumCities = [
     "Brussels", "Antwerp", "Ghent", "Charleroi", "Liège",
@@ -156,35 +160,58 @@ class ProfileProvider with ChangeNotifier {
       'name': 'Monica',
       'age': 24,
       'location': 'Kazan, Russia',
-      'image': 'image/girl.jpg'
+      'image': 'image/girl.jpg',
+      'follower': 12.4,
+      'following': 50,
     },
     {
       'name': 'Lena',
       'age': 26,
       'location': 'Moscow, Russia',
-      'image': 'image/girl1.png'
+      'image': 'image/girl1.png',
+    'follower': '80.7k',
+    'following': '30',
     },
     {
       'name': 'Sara',
       'age': 23,
       'location': 'Berlin, Germany',
-      'image': 'image/girl2.png'
+      'image': 'image/girl2.png',
+      'follower': '50.9k',
+      'following': '10',
     },
     {
       'name': 'Daria',
       'age': 23,
       'location': 'Berlin, Germany',
-      'image': 'image/girl3.png'
+      'image': 'image/girl3.png',
+      'follower': '20.8k',
+      'following': '100',
     },
     {
       'name': 'Alina',
       'age': 23,
       'location': 'Berlin, Germany',
-      'image': 'image/girl4.png'
+      'image': 'image/girl4.png',
+      'follower': '10.4k',
+      'following': '13',
     },
 
 
   ];
   List<Map<String, dynamic>> get profiles => _profiles;
+
+  final Set<int> _followingIndices = {};
+
+  bool isFollowing(int index) => _followingIndices.contains(index);
+
+  void toggleFollow(int index) {
+    if (_followingIndices.contains(index)) {
+      _followingIndices.remove(index);
+    } else {
+      _followingIndices.add(index);
+    }
+    notifyListeners();
+  }
 
 }

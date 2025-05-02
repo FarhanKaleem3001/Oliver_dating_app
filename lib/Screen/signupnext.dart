@@ -9,7 +9,9 @@ import 'package:video_player/video_player.dart';
 import '../Provider/videoProvider.dart';
 
 class SignUpNext extends StatefulWidget {
-  const SignUpNext({super.key});
+  final Map<String, dynamic> profile;
+  final int index;
+  const SignUpNext({required this.profile, required this.index});
 
   @override
   State<SignUpNext> createState() => _SignUpNextState();
@@ -220,22 +222,40 @@ class _SignUpNextState extends State<SignUpNext> {
                             readOnly: true,
                             onTap: () async {
                               FocusScope.of(context).requestFocus(FocusNode());
+
                               final DateTime? picked = await showDatePicker(
                                 context: context,
                                 initialDate: selectedDate ?? DateTime.now(),
                                 firstDate: DateTime(1900),
                                 lastDate: DateTime.now(),
-
+                                builder: (context, child) {
+                                  return Theme(
+                                    data: ThemeData.light().copyWith(
+                                      primaryColor: login,
+                                      colorScheme: ColorScheme.light(
+                                        primary: login,
+                                        onPrimary: Colors.white,
+                                      ),
+                                      textButtonTheme: TextButtonThemeData(
+                                        style: TextButton.styleFrom(
+                                          foregroundColor: login,
+                                        ),
+                                      ),
+                                    ),
+                                    child: child!,
+                                  );
+                                },
                               );
+
                               if (picked != null) {
                                 selectedDate = picked;
                                 birthdayController.text =
-                                    "${picked.day.toString().padLeft(2, '0')}-${picked.month.toString().padLeft(2, '0')}-${picked.year}";
+                                "${picked.day.toString().padLeft(2, '0')}-${picked.month.toString().padLeft(2, '0')}-${picked.year}";
                               }
                             },
                             decoration: InputDecoration(
                               hintText: "Select Your Birthday",
-                              hintStyle: TextStyle(color:hintcolor),
+                              hintStyle: TextStyle(color: hintcolor),
                               border: const UnderlineInputBorder(),
                               enabledBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.grey),
@@ -243,11 +263,11 @@ class _SignUpNextState extends State<SignUpNext> {
                               focusedBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(color: login),
                               ),
-                              suffixIcon: Icon(Icons.calendar_today,
-                                  color: login),
+                              suffixIcon: Icon(Icons.calendar_today, color: login),
                             ),
                           ),
                         ),
+
                         Row(
                           children: [
                             Image.asset(
@@ -515,7 +535,7 @@ class _SignUpNextState extends State<SignUpNext> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SignUpFinal()));
+                                      builder: (context) => SignUpFinal(profile: {}, index: widget.index,)));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: login,

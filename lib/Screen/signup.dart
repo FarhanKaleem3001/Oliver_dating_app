@@ -9,7 +9,10 @@ import '../Provider/videoProvider.dart';
 import '../Utils/color.dart';
 
 class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+  final Map<String, dynamic> profile;
+  final int index;
+  const SignUp({required this.profile, required this.index});
+
 
   @override
   State<SignUp> createState() => _SignUpState();
@@ -156,7 +159,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn(profile: {}, index: widget.index,)));
                               },
                               child: Text(
                                 ' Login here ! ',
@@ -392,7 +395,7 @@ class _SignUpState extends State<SignUp> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SignUpNext()));
+                                      builder: (context) => SignUpNext(profile: {}, index: widget.index,)));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: login,
