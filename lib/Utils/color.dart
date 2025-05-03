@@ -58,9 +58,19 @@ class Font{
     fontSize: 30,
     fontWeight: FontWeight.bold,
   );
+  static final TextStyle boldFont4 = GoogleFonts.openSans(
+    color: appfontcolor,
+    fontSize: 15,
+    fontWeight: FontWeight.bold,
+  );
   static final TextStyle normalFont = GoogleFonts.openSans(
     color: Colors.black87,
     fontSize: 15,
+    fontWeight: FontWeight.w400,
+  );
+  static final TextStyle normalFont6 = GoogleFonts.openSans(
+    color: Colors.black87,
+    fontSize: 13,
     fontWeight: FontWeight.w400,
   );
   static final TextStyle normalFont5 = GoogleFonts.openSans(
@@ -89,7 +99,7 @@ class Font{
     fontWeight: FontWeight.w500,
   );
   static final TextStyle feed = GoogleFonts.openSans(
-    color: cardbackgroundColor,
+    color: Colors.black87,
     fontSize: 18,
     fontWeight: FontWeight.bold,
   );

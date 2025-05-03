@@ -8,23 +8,23 @@ import '../Provider/locationProvider.dart';
 import '../Provider/profileProvider.dart';
 import '../Utils/color.dart';
 
-class DetailPage extends StatefulWidget {
+class EventDetailPage extends StatefulWidget {
   final Map<String, dynamic> profile;
   final int index;
   final String name;
   final String description;
-  const DetailPage(
+  const EventDetailPage(
       {super.key,
-      required this.description,
-      required this.profile,
-      required this.index,
-      required this.name});
+        required this.description,
+        required this.profile,
+        required this.index,
+        required this.name});
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<EventDetailPage> createState() => _EventDetailPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _EventDetailPageState extends State<EventDetailPage> {
   @override
   Widget build(BuildContext context) {
     final locationProvider = Provider.of<LocationProvider>(context);
@@ -128,17 +128,17 @@ class _DetailPageState extends State<DetailPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            Text('Flourish Fest: Where Women and Wildflowers Rise Together', style: Font.boldFont),
+                            Text('Electric Dreams: A Neon Glow-in-the-Dark Dance Experience', style: Font.boldFont),
                             SizedBox(
                               height: 20,
                             ),
                             CarouselSlider(
                               items: [
-                                Image.asset('image/img1.jpg',
+                                Image.asset('image/ev6.png',
                                     fit: BoxFit.cover),
-                                Image.asset('image/img2.jpg',
+                                Image.asset('image/ev5.png',
                                     fit: BoxFit.cover),
-                                Image.asset('image/img3.jpg',
+                                Image.asset('image/ev4.png',
                                     fit: BoxFit.cover),
                               ],
                               options: CarouselOptions(

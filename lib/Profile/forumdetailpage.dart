@@ -8,23 +8,23 @@ import '../Provider/locationProvider.dart';
 import '../Provider/profileProvider.dart';
 import '../Utils/color.dart';
 
-class DetailPage extends StatefulWidget {
+class ForumDetailPage extends StatefulWidget {
   final Map<String, dynamic> profile;
   final int index;
   final String name;
   final String description;
-  const DetailPage(
+  const ForumDetailPage(
       {super.key,
-      required this.description,
-      required this.profile,
-      required this.index,
-      required this.name});
+        required this.description,
+        required this.profile,
+        required this.index,
+        required this.name});
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<ForumDetailPage> createState() => _ForumDetailPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _ForumDetailPageState extends State<ForumDetailPage> {
   @override
   Widget build(BuildContext context) {
     final locationProvider = Provider.of<LocationProvider>(context);
@@ -134,11 +134,11 @@ class _DetailPageState extends State<DetailPage> {
                             ),
                             CarouselSlider(
                               items: [
-                                Image.asset('image/img1.jpg',
+                                Image.asset('image/f1.png',
                                     fit: BoxFit.cover),
-                                Image.asset('image/img2.jpg',
+                                Image.asset('image/f2.png',
                                     fit: BoxFit.cover),
-                                Image.asset('image/img3.jpg',
+                                Image.asset('image/f3.png',
                                     fit: BoxFit.cover),
                               ],
                               options: CarouselOptions(

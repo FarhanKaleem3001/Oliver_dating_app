@@ -19,4 +19,18 @@ class TabProvider with ChangeNotifier {
     _selectedTabIndex = index;
     notifyListeners();
   }
+
+  bool _isPictureSelected = true;
+
+  bool get isPictureSelected => _isPictureSelected;
+
+  void selectPicture() {
+    _isPictureSelected = true;
+    notifyListeners();
+  }
+
+  void selectVideo() {
+    _isPictureSelected = false;
+    notifyListeners();
+  }
 }

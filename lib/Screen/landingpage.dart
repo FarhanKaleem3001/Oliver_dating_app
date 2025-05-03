@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 
+import '../Modal/ProfileData.dart';
 import '../Provider/navigationProvider.dart';
 import '../Utils/color.dart';
 import '../Widget/custombottomnavbar.dart';
@@ -143,7 +144,7 @@ class _LandingPageState extends State<LandingPage> {
                                   children: [
                                     GestureDetector(
                                       onTap: () {
-                                         Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPage(description: '',)));
+                                         Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPage(description: '', profile: {}, index: index,    name: profiles[index]['name'],)));
                                       },
                                         child: Text('This is Heading', style: Font.boldFont)),
                                     Text(
@@ -158,7 +159,7 @@ class _LandingPageState extends State<LandingPage> {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) => DetailPage(
-                                              description: 'I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages.',
+                                              description: 'I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages. I am a professional website developer and designer, having good knowledge of different web programming languages.', profile: {}, index: index,    name: profiles[index]['name'],
                                             ),
                                           ),
                                         );

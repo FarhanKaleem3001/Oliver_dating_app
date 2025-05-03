@@ -180,7 +180,7 @@ class _SignInState extends State<SignIn> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => LandingPage()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Home(profile: {}, index: widget.index)));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: login,

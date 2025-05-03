@@ -1,5 +1,10 @@
 import 'package:dating_site/Profile/aboutsection.dart';
+import 'package:dating_site/Profile/blogsection.dart';
+import 'package:dating_site/Profile/charitysection.dart';
+import 'package:dating_site/Profile/eventsection.dart';
+import 'package:dating_site/Profile/forumsection.dart';
 import 'package:dating_site/Profile/gallerysection.dart';
+import 'package:dating_site/Profile/giftsection.dart';
 import 'package:dating_site/Utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -258,6 +263,17 @@ class ProfileDetailScreen extends StatelessWidget {
                               return const AboutSection();
                             case 1:
                               return const GallerySection();
+                            case 2:
+                              return const GiftSection();
+                            case 3:
+                              return const ForumSection();
+                            case 4:
+                              return const EventSection();
+                            case 5:
+                              return const BlogSection();
+                            case 6:
+                              return const CharitySection();
+
                             default:
                               return const SizedBox();
                           }
