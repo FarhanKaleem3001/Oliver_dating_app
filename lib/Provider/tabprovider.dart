@@ -33,4 +33,19 @@ class TabProvider with ChangeNotifier {
     _isPictureSelected = false;
     notifyListeners();
   }
+
+//status
+  String? _status;
+
+  String? get status => _status;
+
+  void setStatus(String value) {
+    _status = value;
+    notifyListeners();
+  }
+
+  void clearStatus() {
+    _status = null;
+    notifyListeners();
+  }
 }

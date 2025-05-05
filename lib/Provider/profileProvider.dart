@@ -214,4 +214,14 @@ class ProfileProvider with ChangeNotifier {
     notifyListeners();
   }
 
+
+  bool _isFavorite = false;
+
+  bool get isFavoritess => _isFavorite;
+
+  void toggleFavoritess() {
+    _isFavorite = !_isFavorite;
+    notifyListeners();
+  }
+
 }

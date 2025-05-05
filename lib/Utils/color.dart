@@ -63,6 +63,11 @@ class Font{
     fontSize: 15,
     fontWeight: FontWeight.bold,
   );
+  static final TextStyle boldFont5 = GoogleFonts.openSans(
+    color: appfontcolor,
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+  );
   static final TextStyle normalFont = GoogleFonts.openSans(
     color: Colors.black87,
     fontSize: 15,

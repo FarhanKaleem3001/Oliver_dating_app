@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dating_site/Widget/custombottomnavbar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -33,138 +34,182 @@ class _ForumDetailPageState extends State<ForumDetailPage> {
     final profileProvider = Provider.of<ProfileProvider>(context);
 
     return Scaffold(
-        appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                  ),
-                  //Image.asset('image/heart.png', height: 20, width: 20,),
-                  SizedBox(width: 5),
-                  Text('MIX OF COLOR', style: Font.boldFont),
-                ],
-              ),
-              Spacer(),
-              Image.asset(
-                'image/bell.png',
-                height: 20,
-                width: 20,
-              ),
-              SizedBox(width: 10),
-              Image.asset(
-                'image/filter.png',
-                height: 20,
-                width: 20,
-              ),
-            ],
-          ),
-        ),
+      
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: SingleChildScrollView(
-              child: Center(
-                child: Column(
-                  children: [
-                    SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                CircleAvatar(
-                                  backgroundColor: Colors.transparent,
-                                  radius: 15,
-                                  child: ClipOval(
-                                      child: Image.asset('image/abt5.jpg',
-                                          width: 40, height: 40)),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    //Text('${widget.profile['name']}', style: Font.normalFont),
-                                    Text('Monica', style: Font.normalFont),
+         child: SingleChildScrollView(
+           child: Column(
+             children: [
+             Padding(
+               padding: EdgeInsets.all(20),
+               child: Center(
+                 child: Column(
+                   children: [
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       children: [
+                         Row(
+                           children: [
+                             Icon(Icons.favorite, color: Colors.red,),
+                             //Image.asset('image/heart.png', height: 20, width: 20,),
+                             SizedBox(width: 5),
+                             Text('MIX OF COLOR', style: Font.boldFont),
+                           ],
+                         ),
+                         Spacer(),
+                         Image.asset('image/bell.png', height: 20,width: 20,),
+                         SizedBox(width: 10),
+                         Image.asset('image/filter.png', height: 20,width: 20,),
 
-                                    Row(
-                                      children: [
-                                        Text(
-                                          'Kazan, Russia',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          'Posted on: ',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 12,
-                                              color: Colors.green),
-                                        ),
-                                        Text(
-                                          DateFormat('dd-MM-yyyy')
-                                              .format(DateTime.now()),
-                                          style: TextStyle(
-                                              fontSize: 10, color: hintcolor),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            //Image.asset('image/img1.jpg'),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Text('Flourish Fest: Where Women and Wildflowers Rise Together', style: Font.boldFont),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            CarouselSlider(
-                              items: [
-                                Image.asset('image/f1.png',
-                                    fit: BoxFit.cover),
-                                Image.asset('image/f2.png',
-                                    fit: BoxFit.cover),
-                                Image.asset('image/f3.png',
-                                    fit: BoxFit.cover),
-                              ],
-                              options: CarouselOptions(
-                                height: 500,
-                                autoPlay: true,
-                                autoPlayInterval: Duration(seconds: 2),
-                                enlargeCenterPage: true,
-                                aspectRatio: 16 / 9,
-                                viewportFraction: 0.8,
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              widget.description,
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ));
+                       ],
+                     ),
+                     SizedBox(height: 20),
+                     SingleChildScrollView(
+                       child: Center(
+                         child: Column(
+                           children: [
+                             SingleChildScrollView(
+                               child: Column(
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                   Row(
+                                     mainAxisAlignment: MainAxisAlignment.start,
+                                     children: [
+                                       CircleAvatar(
+                                         backgroundColor: Colors.transparent,
+                                         radius: 15,
+                                         child: ClipOval(
+                                             child: Image.asset('image/abt5.jpg',
+                                                 width: 40, height: 40)),
+                                       ),
+                                       SizedBox(
+                                         width: 5,
+                                       ),
+                                       Column(
+                                         crossAxisAlignment: CrossAxisAlignment.start,
+                                         children: [
+                                           //Text('${widget.profile['name']}', style: Font.normalFont),
+                                           Text('Monica', style: Font.normalFont),
+
+                                           Row(
+                                             children: [
+                                               Text(
+                                                 'Kazan, Russia',
+                                                 style: TextStyle(
+                                                   fontWeight: FontWeight.w400,
+                                                   fontSize: 12,
+                                                 ),
+                                               ),
+                                               SizedBox(width: 10),
+                                               Text(
+                                                 'Posted on: ',
+                                                 style: TextStyle(
+                                                     fontWeight: FontWeight.w400,
+                                                     fontSize: 12,
+                                                     color: Colors.green),
+                                               ),
+                                               Text(
+                                                 DateFormat('dd-MM-yyyy')
+                                                     .format(DateTime.now()),
+                                                 style: TextStyle(
+                                                     fontSize: 10, color: hintcolor),
+                                               ),
+                                             ],
+                                           ),
+                                         ],
+                                       ),
+                                     ],
+                                   ),
+                                   //Image.asset('image/img1.jpg'),
+                                   SizedBox(
+                                     height: 20,
+                                   ),
+                                   Text('Flourish Fest: Where Women and Wildflowers Rise Together', style: Font.boldFont),
+                                   SizedBox(
+                                     height: 20,
+                                   ),
+                                   Column(
+                                     children: [
+                                       Center(
+                                         child: ClipRRect(
+                                           borderRadius: BorderRadius.circular(20),
+                                           child: Image.asset(
+                                             'image/fo4.png',
+                                             width: 380,
+                                             height: 400,
+                                             fit: BoxFit.cover,
+                                           ),
+                                         ),
+                                       ),
+                                     ],
+                                   ),
+                                   SizedBox(height: 10,),
+                                   Row(
+                                     children: [
+                                       Row(
+                                         children: [
+                                           Consumer<ProfileProvider>(
+                                             builder: (context, profileProvider, child) {
+                                               final isFav = profileProvider.isFavoritess;
+                                               return GestureDetector(
+                                                 onTap: () {
+                                                   profileProvider.toggleFavoritess();
+                                                 },
+                                                 child: Icon(
+                                                   isFav ? Icons.favorite : Icons.favorite_border,
+                                                   color: isFav ? Colors.red : Colors.black87,
+                                                   size: 30,
+                                                 ),
+                                               );
+                                             },
+                                           ),
+                                           SizedBox(width: 5,),
+                                           Text('Like', style: Font.profileabout3)
+                                         ],
+                                       ),
+                                       SizedBox(width: 20,),
+                                       Row(
+                                         children: [
+                                           Consumer<ProfileProvider>(
+                                             builder: (context, profileProvider, child) {
+                                               final isFav = profileProvider.isFavoritess;
+                                               return GestureDetector(
+                                                 onTap: () {
+                                                   profileProvider.toggleFavoritess();
+                                                 },
+                                                 child: Icon(
+                                                 Icons.chat_outlined,
+                                                   size: 25,
+                                                 ),
+                                               );
+                                             },
+                                           ),SizedBox(width: 5,),
+                                           Text('Replies', style: Font.profileabout3)
+                                         ],
+                                       ),
+                                     ],
+                                   ),
+                                   SizedBox(height: 10,),
+                                   Text(
+                                     widget.description,
+                                     textAlign: TextAlign.justify,
+                                     style: TextStyle(fontSize: 16),
+                                   ),
+                                 ],
+                               ),
+                             ),
+                           ],
+                         ),
+                       ),
+                     ),
+                   ],
+                 ),
+               ),
+             ),
+                 ],
+           ),
+         ),
+       ),
+      bottomNavigationBar: CustomBottomNavBar(screenWidth: screenWidth),
+    );
   }
 }
