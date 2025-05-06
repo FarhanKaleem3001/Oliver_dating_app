@@ -124,7 +124,7 @@ class _CharitySectionState extends State<CharitySection> {
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 10),
+                              //const SizedBox(height: 10),
 
                               Stack(
                                 alignment: Alignment.center,

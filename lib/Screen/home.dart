@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 import '../Modal/ProfileData.dart';
 import '../Utils/color.dart';
+import '../Widget/appbar.dart';
 import '../Widget/custombottomnavbar.dart';
 
 class Home extends StatefulWidget {
@@ -37,24 +38,8 @@ class _HomeState extends State<Home> {
               child: Center(
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.favorite, color: Colors.red,),
-                            //Image.asset('image/heart.png', height: 20, width: 20,),
-                            SizedBox(width: 5),
-                            Text('MIX OF COLOR', style: Font.boldFont),
-                          ],
-                        ),
-                        Spacer(),
-                        Image.asset('image/bell.png', height: 20,width: 20,),
-                       SizedBox(width: 10),
-                        Image.asset('image/filter.png', height: 20,width: 20,),
+                    Header(),
 
-                      ],
-                    ),
                     SizedBox(height: 20),
                     SafeArea(
                       child: Container(

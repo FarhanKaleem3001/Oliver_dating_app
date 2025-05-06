@@ -49,10 +49,9 @@ class _SignUpNextState extends State<SignUpNext> {
                   : const SizedBox();
             },
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 250),
-            child: Expanded(
-              flex: 6,
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 250),
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -64,16 +63,15 @@ class _SignUpNextState extends State<SignUpNext> {
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
+                    padding: const EdgeInsets.all(15),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Divider(thickness: 2,),
+
                         Text("Personal Information", style: Font.boldFont1),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 10),
 
                         // Center(child: Text("Profile Picture", style: TextStyle(color: singupin, fontSize: 18, fontWeight: FontWeight.bold))),
 
@@ -553,7 +551,7 @@ class _SignUpNextState extends State<SignUpNext> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 10),
+
                       ],
                     ),
                   ),

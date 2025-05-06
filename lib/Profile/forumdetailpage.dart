@@ -8,6 +8,7 @@ import 'package:readmore/readmore.dart';
 import '../Provider/locationProvider.dart';
 import '../Provider/profileProvider.dart';
 import '../Utils/color.dart';
+import '../Widget/appbar.dart';
 
 class ForumDetailPage extends StatefulWidget {
   final Map<String, dynamic> profile;
@@ -44,24 +45,7 @@ class _ForumDetailPageState extends State<ForumDetailPage> {
                child: Center(
                  child: Column(
                    children: [
-                     Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                       children: [
-                         Row(
-                           children: [
-                             Icon(Icons.favorite, color: Colors.red,),
-                             //Image.asset('image/heart.png', height: 20, width: 20,),
-                             SizedBox(width: 5),
-                             Text('MIX OF COLOR', style: Font.boldFont),
-                           ],
-                         ),
-                         Spacer(),
-                         Image.asset('image/bell.png', height: 20,width: 20,),
-                         SizedBox(width: 10),
-                         Image.asset('image/filter.png', height: 20,width: 20,),
 
-                       ],
-                     ),
                      SizedBox(height: 20),
                      SingleChildScrollView(
                        child: Center(
@@ -71,54 +55,7 @@ class _ForumDetailPageState extends State<ForumDetailPage> {
                                child: Column(
                                  crossAxisAlignment: CrossAxisAlignment.start,
                                  children: [
-                                   Row(
-                                     mainAxisAlignment: MainAxisAlignment.start,
-                                     children: [
-                                       CircleAvatar(
-                                         backgroundColor: Colors.transparent,
-                                         radius: 15,
-                                         child: ClipOval(
-                                             child: Image.asset('image/abt5.jpg',
-                                                 width: 40, height: 40)),
-                                       ),
-                                       SizedBox(
-                                         width: 5,
-                                       ),
-                                       Column(
-                                         crossAxisAlignment: CrossAxisAlignment.start,
-                                         children: [
-                                           //Text('${widget.profile['name']}', style: Font.normalFont),
-                                           Text('Monica', style: Font.normalFont),
-
-                                           Row(
-                                             children: [
-                                               Text(
-                                                 'Kazan, Russia',
-                                                 style: TextStyle(
-                                                   fontWeight: FontWeight.w400,
-                                                   fontSize: 12,
-                                                 ),
-                                               ),
-                                               SizedBox(width: 10),
-                                               Text(
-                                                 'Posted on: ',
-                                                 style: TextStyle(
-                                                     fontWeight: FontWeight.w400,
-                                                     fontSize: 12,
-                                                     color: Colors.green),
-                                               ),
-                                               Text(
-                                                 DateFormat('dd-MM-yyyy')
-                                                     .format(DateTime.now()),
-                                                 style: TextStyle(
-                                                     fontSize: 10, color: hintcolor),
-                                               ),
-                                             ],
-                                           ),
-                                         ],
-                                       ),
-                                     ],
-                                   ),
+                                   Header(),
                                    //Image.asset('image/img1.jpg'),
                                    SizedBox(
                                      height: 20,

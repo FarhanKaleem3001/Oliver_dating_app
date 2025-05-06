@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 
 import '../Provider/profileProvider.dart';
 import '../Provider/tabprovider.dart';
+import '../Widget/appbar.dart';
 import '../Widget/custombottomnavbar.dart';
 
 class ProfileDetailScreen extends StatelessWidget {
@@ -32,34 +33,7 @@ class ProfileDetailScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.favorite,
-                        color: Colors.red,
-                      ),
-                      //Image.asset('image/heart.png', height: 20, width: 20,),
-                      SizedBox(width: 5),
-                      Text('MIX OF COLOR', style: Font.boldFont),
-                    ],
-                  ),
-                  Spacer(),
-                  Image.asset(
-                    'image/bell.png',
-                    height: 20,
-                    width: 20,
-                  ),
-                  SizedBox(width: 10),
-                  Image.asset(
-                    'image/filter.png',
-                    height: 20,
-                    width: 20,
-                  ),
-                ],
-              ),
+              Header(),
               SizedBox(height: 20),
               ClipRRect(
                 borderRadius: const BorderRadius.only(
@@ -69,7 +43,7 @@ class ProfileDetailScreen extends StatelessWidget {
                   bottomRight: Radius.circular(25),
                 ),
                 child: SizedBox(
-                  height: screenHeight * 0.5,
+                  height: screenHeight * 0.2,
                   width: double.infinity,
                   child: Stack(
                     children: [
@@ -218,7 +192,6 @@ class ProfileDetailScreen extends StatelessWidget {
                                   "Blog",
                                   "Charity",
                                 ];
-
                                 return SingleChildScrollView(
                                   scrollDirection: Axis.horizontal,
                                   child: Row(
@@ -273,7 +246,6 @@ class ProfileDetailScreen extends StatelessWidget {
                               return const BlogSection();
                             case 6:
                               return const CharitySection();
-
                             default:
                               return const SizedBox();
                           }

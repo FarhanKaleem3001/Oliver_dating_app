@@ -24,162 +24,160 @@ class _SignUpFinalState extends State<SignUpFinal> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text("Discover like-minded people.",
-                          style: Font.boldFont1),
-                      const SizedBox(height: 20),
-                      //Center(child: Image.asset('image/profile.jpg', height: 100,)),
-                      Text(
-                        'Share your interest, passions and hobbies. We will connect you with people who share your enthusiasm.',
-                        style: Font.normalFont,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      TextField(
-                        controller: searchController,
-                        onChanged: (value) {
-                          Provider.of<ProfileProvider>(context, listen: false)
-                              .updateSearchQuery(value);
-                        },
-                        decoration: InputDecoration(
-                          hintText: "Search Interest...",
-                          hintStyle: TextStyle(color: hintcolor),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30)),
-                          filled: true,
-                          fillColor: Colors.white,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide:
-                                BorderSide(color: Colors.black54, width: 1),
-                          ),
-                          prefixIcon: Icon(Icons.search, color: Colors.black38),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text("Discover like-minded people.",
+                        style: Font.boldFont1),
+                    const SizedBox(height: 10),
+                    //Center(child: Image.asset('image/profile.jpg', height: 100,)),
+                    Text(
+                      'Share your interest, passions and hobbies. We will connect you with people who share your enthusiasm.',
+                      style: Font.normalFont,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      controller: searchController,
+                      onChanged: (value) {
+                        Provider.of<ProfileProvider>(context, listen: false)
+                            .updateSearchQuery(value);
+                      },
+                      decoration: InputDecoration(
+                        hintText: "Search Interest...",
+                        hintStyle: TextStyle(color: hintcolor),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        filled: true,
+                        fillColor: Colors.white,
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide:
+                              BorderSide(color: Colors.black54, width: 1),
                         ),
-                        keyboardType: TextInputType.text,
+                        prefixIcon: Icon(Icons.search, color: Colors.black38),
                       ),
+                      keyboardType: TextInputType.text,
+                    ),
 
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Consumer<ProfileProvider>(
-                        builder: (context, chipProvider, _) {
-                          final interests = [
-                            'Travel',
-                            'Cooking',
-                            'Yoga',
-                            'Gaming',
-                            'Movie',
-                            'Photography',
-                            'Music',
-                            'Pets',
-                            'Fashion',
-                            'Reading',
-                            'Dancing',
-                            'Art',
-                            'Drawing',
-                            'Writing',
-                            'Blogging',
-                            'Hiking',
-                            'Cycling',
-                            'Fitness',
-                            'Meditation',
-                            'Crafting',
-                            'Technology',
-                            'DIY Projects',
-                            'Gardening',
-                            'Board Games',
-                            'Collecting',
-                            'Skating',
-                            'Swimming',
-                            'Astronomy',
-                            'Karaoke',
-                            'Language Learning',
-                            'Podcasting',
-                            'Investing',
-                            'Public Speaking',
-                          ];
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Consumer<ProfileProvider>(
+                      builder: (context, chipProvider, _) {
+                        final interests = [
+                          'Travel',
+                          'Cooking',
+                          'Yoga',
+                          'Gaming',
+                          'Movie',
+                          'Photography',
+                          'Music',
+                          'Pets',
+                          'Fashion',
+                          'Reading',
+                          'Dancing',
+                          'Art',
+                          'Drawing',
+                          'Writing',
+                          'Blogging',
+                          'Hiking',
+                          'Cycling',
+                          'Fitness',
+                          'Meditation',
+                          'Crafting',
+                          'Technology',
+                          'DIY Projects',
+                          'Gardening',
+                          'Board Games',
+                          'Collecting',
+                          'Skating',
+                          'Swimming',
+                          'Astronomy',
+                          'Karaoke',
+                          'Language Learning',
+                          'Podcasting',
+                          'Investing',
+                          'Public Speaking',
+                        ];
 
-                          return Wrap(
-                            spacing: 10,
-                            runSpacing: 10,
-                            children: interests
-                                .map((interest) => buildChip(interest, context))
-                                .toList(),
-                          );
-                        },
-                      ),
+                        return Wrap(
+                          spacing: 10,
+                          runSpacing: 10,
+                          children: interests
+                              .map((interest) => buildChip(interest, context))
+                              .toList(),
+                        );
+                      },
+                    ),
 
-                      const SizedBox(height: 30),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LandingPage()));
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: login,
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 15),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              child: Text(
-                                "SKIP",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
+                    const SizedBox(height: 30),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LandingPage()));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: login,
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => PhotoPage(profile: {}, index: widget.index,)));
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: login,
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 15),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              child: Text(
-                                "NEXT",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
+                            child: Text(
+                              "SKIP",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20),
                             ),
                           ),
-                        ],
-                      )
-                    ],
-                  ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PhotoPage(profile: {}, index: widget.index,)));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: login,
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            child: Text(
+                              "NEXT",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

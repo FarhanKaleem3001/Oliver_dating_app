@@ -9,6 +9,7 @@ import 'package:readmore/readmore.dart';
 import '../Provider/locationProvider.dart';
 import '../Provider/profileProvider.dart';
 import '../Utils/color.dart';
+import '../Widget/appbar.dart';
 
 class CharityDetailSection extends StatefulWidget {
   final Map<String, dynamic> profile;
@@ -45,24 +46,7 @@ class _CharityDetailSectionState extends State<CharityDetailSection> {
                 child: Center(
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(Icons.favorite, color: Colors.red,),
-                              //Image.asset('image/heart.png', height: 20, width: 20,),
-                              SizedBox(width: 5),
-                              Text('MIX OF COLOR', style: Font.boldFont),
-                            ],
-                          ),
-                          Spacer(),
-                          Image.asset('image/bell.png', height: 20,width: 20,),
-                          SizedBox(width: 10),
-                          Image.asset('image/filter.png', height: 20,width: 20,),
-
-                        ],
-                      ),
+                      Header(),
                       SizedBox(height: 20),
                       SingleChildScrollView(
                         child: Center(
@@ -72,58 +56,7 @@ class _CharityDetailSectionState extends State<CharityDetailSection> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        CircleAvatar(
-                                          backgroundColor: Colors.transparent,
-                                          radius: 15,
-                                          child: ClipOval(
-                                              child: Image.asset('image/abt5.jpg',
-                                                  width: 40, height: 40)),
-                                        ),
-                                        SizedBox(
-                                          width: 5,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            //Text('${widget.profile['name']}', style: Font.normalFont),
-                                            Text('Monica', style: Font.normalFont),
 
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  'Kazan, Russia',
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 12,
-                                                  ),
-                                                ),
-                                                SizedBox(width: 10),
-                                                Text(
-                                                  'Posted on: ',
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.w400,
-                                                      fontSize: 12,
-                                                      color: Colors.green),
-                                                ),
-                                                Text(
-                                                  DateFormat('dd-MM-yyyy')
-                                                      .format(DateTime.now()),
-                                                  style: TextStyle(
-                                                      fontSize: 10, color: hintcolor),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    //Image.asset('image/img1.jpg'),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
                                     Text('Building a Solar-Powered School in a Rural Village.', style: Font.boldFont),
                                     SizedBox(
                                       height: 20,
@@ -170,7 +103,7 @@ class _CharityDetailSectionState extends State<CharityDetailSection> {
                                             ),
                                           ],
                                         ),
-                                        const SizedBox(height: 10),
+                                      //  const SizedBox(height: 10),
 
                                         Stack(
                                           alignment: Alignment.center,
@@ -201,7 +134,7 @@ class _CharityDetailSectionState extends State<CharityDetailSection> {
                                             ),
                                           ],
                                         ),
-                                        const SizedBox(height: 30),
+                                        const SizedBox(height: 20),
                                         Row(
                                           children: [
                                             Expanded(
@@ -210,19 +143,19 @@ class _CharityDetailSectionState extends State<CharityDetailSection> {
 
                                                 },
                                                 style: ElevatedButton.styleFrom(
-                                                  backgroundColor: login,
+                                                  backgroundColor: btcolor,
                                                   padding:
-                                                  const EdgeInsets.symmetric(vertical: 15),
+                                                  const EdgeInsets.symmetric(vertical: 5),
                                                   shape: RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderRadius: BorderRadius.circular(8),
                                                   ),
                                                 ),
                                                 child: Text(
                                                   "\$10",
                                                   style: TextStyle(
-                                                      color: Colors.white,
+                                                      color: notcolor,
                                                       fontWeight: FontWeight.bold,
-                                                      fontSize: 20),
+                                                      fontSize: 15),
                                                 ),
                                               ),
                                             ),
@@ -233,22 +166,92 @@ class _CharityDetailSectionState extends State<CharityDetailSection> {
 
                                                 },
                                                 style: ElevatedButton.styleFrom(
-                                                  backgroundColor: login,
+                                                  backgroundColor: btcolor,
                                                   padding:
-                                                  const EdgeInsets.symmetric(vertical: 15),
+                                                  const EdgeInsets.symmetric(vertical: 8),
                                                   shape: RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.circular(10),
+                                                    borderRadius: BorderRadius.circular(8),
                                                   ),
                                                 ),
                                                 child: Text(
-                                                  "\$15",
+                                                  "\$10",
                                                   style: TextStyle(
-                                                      color: Colors.white,
+                                                      color: notcolor,
                                                       fontWeight: FontWeight.bold,
-                                                      fontSize: 20),
+                                                      fontSize: 15),
                                                 ),
                                               ),
                                             ),
+                                            const SizedBox(width: 10),
+                                            Expanded(
+                                              child: ElevatedButton(
+                                                onPressed: () {
+
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor: btcolor,
+                                                  padding:
+                                                  const EdgeInsets.symmetric(vertical: 8),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                  ),
+                                                ),
+                                                child: Text(
+                                                  "\$10",
+                                                  style: TextStyle(
+                                                      color: notcolor,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 15),
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Expanded(
+                                              child: ElevatedButton(
+                                                onPressed: () {
+
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor: btcolor,
+                                                  padding:
+                                                  const EdgeInsets.symmetric(vertical: 8),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                  ),
+                                                ),
+                                                child: Text(
+                                                  "\$10",
+                                                  style: TextStyle(
+                                                      color: notcolor,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 15),
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Expanded(
+                                              child: ElevatedButton(
+                                                onPressed: () {
+
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor: donatcolor,
+                                                  padding:
+                                                  const EdgeInsets.symmetric(vertical: 8),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(8),
+                                                  ),
+                                                ),
+                                                child: Text(
+                                                  "Donate",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: 15),
+                                                ),
+                                              ),
+                                            ),
+
                                           ],
                                         ),
                                       ],

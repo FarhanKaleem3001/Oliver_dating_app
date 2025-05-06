@@ -118,10 +118,9 @@ class _SignUpState extends State<SignUp> {
           ),
 
 
-          Padding(
-            padding: const EdgeInsets.only(top: 250),
-            child: Expanded(
-              flex: 6,
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 337),
               child: Container(
                 decoration:  BoxDecoration(
                   color: Colors.white,
@@ -131,291 +130,288 @@ class _SignUpState extends State<SignUp> {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 40),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "Sign Up ",
-                          style: Font.boldFont1,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'If you already have an account register.',
-                          style: Font.normalFont,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'You can ',
-                              style: Font.normalFont,
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn(profile: {}, index: widget.index,)));
-                              },
-                              child: Text(
-                                ' Login here ! ',
-                                style: TextStyle(
-                                    color: login,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.mail_outline_rounded,
-                              color: login,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              'Email',
-                              style: TextStyle(
-                                  color: login,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-
-                        const SizedBox(height: 8),
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 20),
-                          child: TextField(
-                            controller: emailController,
-                            decoration: InputDecoration(
-                              hintText: "Enter Your Email",
-                              hintStyle: TextStyle(color: hintcolor),
-                              border: const UnderlineInputBorder(),
-                              enabledBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
-                              ),
-                              focusedBorder: const UnderlineInputBorder(
-                                borderSide: BorderSide(color: login),
-                              ),
-                              contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                            keyboardType: TextInputType.emailAddress,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Sign Up ",
+                        style: Font.boldFont1,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'If you already have an account register.',
+                        style: Font.normalFont,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'You can ',
+                            style: Font.normalFont,
                           ),
-                        ),
-                        //const SizedBox(height: 20),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.phone_android_outlined,
-                              color: login,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              'Phone Number',
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn(profile: {}, index: widget.index,)));
+                            },
+                            child: Text(
+                              ' Login here ! ',
                               style: TextStyle(
                                   color: login,
-                                  fontSize: 18,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.bold),
                             ),
-                          ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.mail_outline_rounded,
+                            color: login,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            'Email',
+                            style: TextStyle(
+                                color: login,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+            
+                      const SizedBox(height: 8),
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        child: TextField(
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            hintText: "Enter Your Email",
+                            hintStyle: TextStyle(color: hintcolor),
+                            border: const UnderlineInputBorder(),
+                            enabledBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey),
+                            ),
+                            focusedBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: login),
+                            ),
+                            contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 10),
+                          ),
+                          keyboardType: TextInputType.emailAddress,
                         ),
-                        const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 140,
-                              child: Container(
-                                padding:
-                                const EdgeInsets.symmetric(horizontal: 8),
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey),
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: Colors.white,
-                                ),
-                                child: DropdownButtonHideUnderline(
-                                  child: DropdownButton<String>(
-                                    value: loginProvider.selectedCountry,
-                                    isExpanded: true,
-                                    items: countryList.map((country) {
-                                      return DropdownMenuItem<String>(
-                                        value: country["code"],
-                                        child: Row(
-                                          children: [
-                                            const SizedBox(width: 5),
-                                            Text(country["flag"]!),
-                                            const SizedBox(width: 5),
-                                            Expanded(
-                                              child: Text(
-                                                country["name"]!,
-                                                style: const TextStyle(
-                                                    fontSize: 14),
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                            ),
-                                            const SizedBox(width: 5),
-                                            Text(
-                                              country["dial_code"]!,
-                                              style:
-                                              const TextStyle(fontSize: 14),
+                      ),
+                      //const SizedBox(height: 20),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.phone_android_outlined,
+                            color: login,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            'Phone Number',
+                            style: TextStyle(
+                                color: login,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: 140,
+                            child: Container(
+                              padding:
+                              const EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                                borderRadius: BorderRadius.circular(5),
+                                color: Colors.white,
+                              ),
+                              child: DropdownButtonHideUnderline(
+                                child: DropdownButton<String>(
+                                  value: loginProvider.selectedCountry,
+                                  isExpanded: true,
+                                  items: countryList.map((country) {
+                                    return DropdownMenuItem<String>(
+                                      value: country["code"],
+                                      child: Row(
+                                        children: [
+                                          const SizedBox(width: 5),
+                                          Text(country["flag"]!),
+                                          const SizedBox(width: 5),
+                                          Expanded(
+                                            child: Text(
+                                              country["name"]!,
+                                              style: const TextStyle(
+                                                  fontSize: 14),
                                               overflow: TextOverflow.ellipsis,
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                          const SizedBox(width: 5),
+                                          Text(
+                                            country["dial_code"]!,
+                                            style:
+                                            const TextStyle(fontSize: 14),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    loginProvider.setSelectedCountry(value!);
+                                  },
+                                  selectedItemBuilder:
+                                      (BuildContext context) {
+                                    return countryList.map<Widget>((country) {
+                                      return Row(
+                                        children: [
+                                          Text(country["flag"]!),
+                                          const SizedBox(width: 5),
+                                          Expanded(
+                                            child: Text(
+                                              country["name"]!,
+                                              style: const TextStyle(
+                                                  fontSize: 14),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 5),
+                                          Text(
+                                            country["dial_code"]!,
+                                            style:
+                                            const TextStyle(fontSize: 14),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ],
                                       );
-                                    }).toList(),
-                                    onChanged: (value) {
-                                      loginProvider.setSelectedCountry(value!);
-                                    },
-                                    selectedItemBuilder:
-                                        (BuildContext context) {
-                                      return countryList.map<Widget>((country) {
-                                        return Row(
-                                          children: [
-                                            Text(country["flag"]!),
-                                            const SizedBox(width: 5),
-                                            Expanded(
-                                              child: Text(
-                                                country["name"]!,
-                                                style: const TextStyle(
-                                                    fontSize: 14),
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                            ),
-                                            const SizedBox(width: 5),
-                                            Text(
-                                              country["dial_code"]!,
-                                              style:
-                                              const TextStyle(fontSize: 14),
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ],
-                                        );
-                                      }).toList();
-                                    },
-                                  ),
+                                    }).toList();
+                                  },
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: Container(
-                                margin: const EdgeInsets.only(bottom: 20),
-                                child: TextField(
-                                  controller: phoneController,
-                                  decoration: InputDecoration(
-                                    hintText: "Enter Your Phone no.",
-                                    hintStyle: TextStyle(color: hintcolor),
-                                    border: const UnderlineInputBorder(),
-                                    enabledBorder: const UnderlineInputBorder(
-                                      borderSide:
-                                      BorderSide(color: Colors.grey),
-                                    ),
-                                    focusedBorder: const UnderlineInputBorder(
-                                      borderSide: BorderSide(color: login),
-                                    ),
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        horizontal: 10),
-                                  ),
-                                  keyboardType: TextInputType.emailAddress,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 15),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.lock_outline,
-                              color: login,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              'Password',
-                              style: TextStyle(
-                                  color: login,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 20),
-                          child: Consumer<ProfileProvider>(
-                            builder: (context, passwordProvider, child) {
-                              return TextField(
-                                // controller: passwordController,
-                                obscureText: !passwordProvider.isVisible,
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Container(
+                              margin: const EdgeInsets.only(bottom: 20),
+                              child: TextField(
+                                controller: phoneController,
                                 decoration: InputDecoration(
-                                  hintText: "  Enter Your Password",
+                                  hintText: "Enter Your Phone no.",
                                   hintStyle: TextStyle(color: hintcolor),
                                   border: const UnderlineInputBorder(),
                                   enabledBorder: const UnderlineInputBorder(
-                                    borderSide: BorderSide(color: Colors.grey),
+                                    borderSide:
+                                    BorderSide(color: Colors.grey),
                                   ),
                                   focusedBorder: const UnderlineInputBorder(
                                     borderSide: BorderSide(color: login),
                                   ),
-                                  suffixIcon: IconButton(
-                                    icon: Icon(
-                                      passwordProvider.isVisible
-                                          ? Icons.visibility
-                                          : Icons.visibility_off,
-                                      color: Colors.grey,
-                                    ),
-                                    onPressed:
-                                    passwordProvider.toggleVisibility,
-                                  ),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 10),
                                 ),
-                              );
-                            },
-                          ),
-                        ),
-
-                        const SizedBox(height: 20),
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SignUpNext(profile: {}, index: widget.index,)));
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: login,
-                              padding: const EdgeInsets.symmetric(vertical: 15),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                keyboardType: TextInputType.emailAddress,
                               ),
                             ),
-                            child: Text(
-                              "NEXT",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 15),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.lock_outline,
+                            color: login,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            'Password',
+                            style: TextStyle(
+                                color: login,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        child: Consumer<ProfileProvider>(
+                          builder: (context, passwordProvider, child) {
+                            return TextField(
+                              // controller: passwordController,
+                              obscureText: !passwordProvider.isVisible,
+                              decoration: InputDecoration(
+                                hintText: "  Enter Your Password",
+                                hintStyle: TextStyle(color: hintcolor),
+                                border: const UnderlineInputBorder(),
+                                enabledBorder: const UnderlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.grey),
+                                ),
+                                focusedBorder: const UnderlineInputBorder(
+                                  borderSide: BorderSide(color: login),
+                                ),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    passwordProvider.isVisible
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
+                                    color: Colors.grey,
+                                  ),
+                                  onPressed:
+                                  passwordProvider.toggleVisibility,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+            
+                      const SizedBox(height: 10),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignUpNext(profile: {}, index: widget.index,)));
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: login,
+                            padding: const EdgeInsets.symmetric(vertical: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                          child: Text(
+                            "NEXT",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
+                          ),
                         ),
-                        const SizedBox(height: 10),
-                      ],
-                    ),
+                      ),
+            
+                    ],
                   ),
                 ),
               ),

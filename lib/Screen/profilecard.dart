@@ -40,7 +40,7 @@ class ProfileCard extends StatelessWidget {
                 left: 0,
                 right: 0,
                 child: Container(
-                  height: 140, 
+                  height: 140,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.bottomCenter,

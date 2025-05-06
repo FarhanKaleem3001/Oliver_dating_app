@@ -1,8 +1,12 @@
+import 'package:dating_site/Screen/blogpage.dart';
+import 'package:dating_site/Screen/eventpage.dart';
+import 'package:dating_site/Screen/forumpage.dart';
 import 'package:dating_site/Screen/landingpage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../Provider/navigationProvider.dart';
+import '../Screen/charitypage.dart';
 import '../Screen/detailpage.dart';
 import '../Screen/home.dart';
 import '../Utils/color.dart';
@@ -36,34 +40,31 @@ class CustomBottomNavBar extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => Home(
-                      profile: {},
-                      index: index,
+                builder: (context) => ForumPage(
+
                     )),
           );
         } else if (index == 2) {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => Home(
-                      profile: {},
-                      index: index,
+                builder: (context) => EventPage(
+
                     )),
           );
         } else if (index == 3) {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => Home(
-                  profile: {},
-                  index: index,
+                builder: (context) => BlogPage(
+
                 )),
           );
         }
         else if (index == 4) {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => LandingPage()),
+            MaterialPageRoute(builder: (context) => CharityPage()),
           );
         }
       },
@@ -110,16 +111,16 @@ class CustomBottomNavBar extends StatelessWidget {
               width: 24,
               height: 24,
             ),
-            label: 'Chats'),
+            label: 'Blog'),
         BottomNavigationBarItem(
             icon: Image.asset(
               navigationProvider.selectedIndex == 4
-                  ? 'image/profile.png'
-                  : 'image/frame.png',
+                  ? 'image/charity4.png'
+                  : 'image/charity3.png',
               width: 24,
               height: 24,
             ),
-            label: 'Profile'),
+            label: 'Charity'),
       ],
     );
   }
