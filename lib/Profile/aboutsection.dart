@@ -27,16 +27,34 @@ class AboutSection extends StatelessWidget {
               ActivityChip(label: 'Snowboarding'),
               ActivityChip(label: 'Painting'),
               ActivityChip(label: 'Golf'),
+              ActivityChip(label: 'Investment'),
+              ActivityChip(label: 'Shopping'),
+              ActivityChip(label: 'Road Trip'),
+              ActivityChip(label: 'Football'),
+              ActivityChip(label: 'Snowboarding'),
+              ActivityChip(label: 'Painting'),
+              ActivityChip(label: 'Golf'),
 
             ],
           ),
           SizedBox(height: 20),
           Text("Bio", style:  Font.notbold),
           Text(
-              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
-                  ' Aenean commodo ligula eget dolor. Aenean massa. '
-                  'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet  eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis  eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis'
+            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+                ' Aenean commodo ligula eget dolor. Aenean massa. '
+                'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis. '
+                'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+                ' Aenean commodo ligula eget dolor. Aenean massa. '
+          'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis.'
+          'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis.',
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.black87,
+              height: 1.5,
+            ),
           ),
+
         ],
       ),
     );
