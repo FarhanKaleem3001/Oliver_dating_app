@@ -57,9 +57,9 @@ class ProfileCard extends StatelessWidget {
                   children: [
                     Text(
                       '${profile['name']} (${profile['age']})',
-                      style: Font.profilename,
+                      style: Font.profilename1,
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     Consumer<ProfileProvider>(
                       builder: (context, profileProvider, child) {
                         final isFollowing = profileProvider.isFollowing(index);
@@ -74,7 +74,7 @@ class ProfileCard extends StatelessWidget {
                               border: Border.all(color: Colors.white, width: 1.0),
                               borderRadius: BorderRadius.circular(8),
                             ),
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
                             child: Text(
                               isFollowing ? 'Following' : '+ Follow',
                               style: TextStyle(
@@ -86,7 +86,7 @@ class ProfileCard extends StatelessWidget {
                         );
                       },
                     ),
-                    const SizedBox(width: 10),
+
                     Container(
                       width: 50,
                       height: 50,

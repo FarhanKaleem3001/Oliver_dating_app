@@ -102,8 +102,8 @@ class _PhotoPageState extends State<PhotoPage> {
                               return Stack(
                                 children: [
                                   Container(
-                                    width: 120,
-                                    height: 200,
+                                    width: 100,
+                                    height: 150,
                                     decoration: BoxDecoration(
                                       color: Colors.grey.shade300,
                                       image: index < imageProvider.pickedImages.length

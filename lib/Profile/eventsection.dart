@@ -107,38 +107,15 @@ class _EventSectionState extends State<EventSection> {
                             children: [
                               //Image.asset('image/Cal.png'),
                               Icon(Icons.calendar_month_outlined, color: Colors.black54, size: 18,),
+                              SizedBox(width: 5),
                               Text('Dec 12, 2025', style: TextStyle(fontSize: 12),),
                               SizedBox(width: 10),
                               Icon(Icons.watch_later_outlined, color: Colors.black54,size: 18,),
+                              SizedBox(width: 5),
                               Text('08:07Am',style: TextStyle(fontSize: 12),),
                             ],
                           ),
 
-                          // Row(
-                          //   children: [
-                          //     GestureDetector(
-                          //       onTap: () {
-                          //         favoriteProvider.toggleFavorite(index);
-                          //       },
-                          //       child: Icon(
-                          //         isFav ? Icons.favorite : Icons.favorite_border,
-                          //         color: isFav ? Colors.red : Colors.black87,
-                          //         size: 25,
-                          //       ),
-                          //     ),
-                          //     const SizedBox(width: 5),
-                          //     const Text('30'),
-                          //     const SizedBox(width: 15),
-                          //     const Icon(Icons.message, size: 20),
-                          //     const SizedBox(width: 5),
-                          //     const Text('10'),
-                          //     const SizedBox(width: 15),
-                          //     Image.asset('image/seen.png', height: 20, width: 20),
-                          //     const SizedBox(width: 5),
-                          //     const Text('50'),
-                          //
-                          //   ],
-                          // ),
                           SizedBox(height: 5),
                         ],
                       ),

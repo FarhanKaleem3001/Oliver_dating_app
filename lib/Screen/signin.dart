@@ -61,7 +61,7 @@ class _SignInState extends State<SignIn> {
 
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(top: 418),
+              padding: const EdgeInsets.only(top: 398),
               child: Container(
                 decoration:  BoxDecoration(
                   color: Colors.white,
@@ -72,7 +72,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,7 +143,7 @@ class _SignInState extends State<SignIn> {
                               suffixIcon: IconButton(
                                 icon: Icon(
                                   passwordProvider.isVisible ? Icons.visibility : Icons.visibility_off,
-                                  color: Colors.grey,
+                                  color: Colors.grey ,
                                 ),
                                 onPressed: passwordProvider.toggleVisibility,
                               ),

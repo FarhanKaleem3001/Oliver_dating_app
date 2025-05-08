@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
                         child: SafeArea(
                           child: SizedBox(
 
-                            height: 670,
+                            height: 580,
                             child: GestureDetector(
                               onTap: () {
 
@@ -69,17 +69,15 @@ class _HomeState extends State<Home> {
                                   return ProfileCard(profile: profile, index: index);
                                 },
 
-                                // {
-                                //   return ProfileCard(profile: profiles[index], index: index);
-                                //   },
+
                                 padding: EdgeInsets.zero,
                               ),
                             ),
                           ),
                         ),
-                      
-                      
-                      
+
+
+
                       ),
                     ),
 
@@ -94,18 +92,14 @@ class _HomeState extends State<Home> {
     );
   }
   Widget CategoryItem(BuildContext context, String title) {
-    // final provider = Provider.of<CategoryProvider>(context);
-    // final isSelected = provider.selectedCategory == title;
 
     return GestureDetector(
       onTap: () {
-        // provider.setSelectedCategory(title);
       },
       child: Text(
         title,
         style: TextStyle(
           fontSize: 16,
-          // color: isSelected ? Colors.red : Colors.black54,
           fontWeight: FontWeight.w500,
         ),
       ),

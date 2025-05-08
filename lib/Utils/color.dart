@@ -193,7 +193,7 @@ class Font{
   );
   static final TextStyle profilename = GoogleFonts.openSans(
     color: Colors.white,
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: FontWeight.bold,
     shadows: [Shadow(blurRadius: 5, color: Colors.black)],
   );

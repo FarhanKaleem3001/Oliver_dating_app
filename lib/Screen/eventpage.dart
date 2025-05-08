@@ -30,160 +30,122 @@ class _EventPageState extends State<EventPage> {
       'image/e5.png',
       'image/e6.png',
     ];
+    final favoriteProvider = Provider.of<ProfileProvider>(context);
 
-    return
-      Scaffold(
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        SizedBox(height: 20),
-                        SingleChildScrollView(
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
 
-                          child: Column(
-                            children: [
-                              Header(),
-                              SizedBox(height: 20),
-                          ListView.builder(
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemCount: 10,
-                            itemBuilder: (context, index) {
-                              final favoriteProvider = Provider.of<ProfileProvider>(context);
-                              final isFav = favoriteProvider.isFavorite(index);
-                              final profileImage = imageList[index % imageList.length];
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Header(),
+                  const SizedBox(height: 10),
+                ],
+              ),
+            ),
 
-                              return Card(
-                                color: Colors.white,
-                                margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 4),
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(2),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius: BorderRadius.circular(20),
-                                            child: Image.asset(
-                                              profileImage,
-                                              height: 130,
-                                              width: 100,
-                                              fit: BoxFit.contain,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 10),
-                                          Expanded(
-                                            child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) => EventDetailPage(description: '', profile: {}, index: index,    name: profiles[index]['name'],),
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.only(top: 10),
-                                                    child: Text('Electric Dreams: A Neon Glow-in-the-Dark Dance Experience...', style: Font.boldFont4),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  'Join us for a magical night where music fills the air and memories are made under the stars. Let the rhythm guide you into a journey of joy, connection, and celebration',
-                                                  maxLines: 1,
-                                                  overflow: TextOverflow.ellipsis,
-                                                  style: Font.normalFont6,
-                                                ),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) => EventDetailPage(
-                                                          name: profiles[index]['name'],
-                                                          description:
-                                                          'Join us for a magical night where music fills the air and memories are made under the stars. This unforgettable evening will feature live bands and DJ sets playing everything from soulful tunes to high-energy dance tracks, all set in a beautiful open-air venue perfect for stargazing and soaking in the vibe.' *
-                                                              1, profile: {}, index: index,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: const Text(
-                                                    '...Read more',
-                                                    style: TextStyle(color: Colors.pink, fontWeight: FontWeight.bold, fontSize: 13),
-                                                  ),
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment: MainAxisAlignment.end,
-                                                  children: [
-                                                    //Image.asset('image/Cal.png'),
-                                                    Icon(Icons.calendar_month_outlined, color: Colors.black54, size: 18,),
-                                                    Text('Dec 12, 2025', style: TextStyle(fontSize: 12),),
-                                                    SizedBox(width: 10),
-                                                    Icon(Icons.watch_later_outlined, color: Colors.black54,size: 18,),
-                                                    Text('08:07Am',style: TextStyle(fontSize: 12),),
-                                                  ],
-                                                ),
 
-                                                // Row(
-                                                //   children: [
-                                                //     GestureDetector(
-                                                //       onTap: () {
-                                                //         favoriteProvider.toggleFavorite(index);
-                                                //       },
-                                                //       child: Icon(
-                                                //         isFav ? Icons.favorite : Icons.favorite_border,
-                                                //         color: isFav ? Colors.red : Colors.black87,
-                                                //         size: 25,
-                                                //       ),
-                                                //     ),
-                                                //     const SizedBox(width: 5),
-                                                //     const Text('30'),
-                                                //     const SizedBox(width: 15),
-                                                //     const Icon(Icons.message, size: 20),
-                                                //     const SizedBox(width: 5),
-                                                //     const Text('10'),
-                                                //     const SizedBox(width: 15),
-                                                //     Image.asset('image/seen.png', height: 20, width: 20),
-                                                //     const SizedBox(width: 5),
-                                                //     const Text('50'),
-                                                //
-                                                //   ],
-                                                // ),
-                                                SizedBox(height: 5),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  final isFav = favoriteProvider.isFavorite(index);
+                  final profileImage = imageList[index % imageList.length];
+
+                  return Card(
+                    color: Colors.white,
+                    margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                              profileImage,
+                              height: 130,
+                              width: 100,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => EventDetailPage(description: '', profile: {}, index: index,    name: profiles[index]['name'],),
                                       ),
-                                    ],
+                                    );
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 10),
+                                    child: Text('Electric Dreams: A Neon Glow-in-the-Dark Dance Experience...', style: Font.boldFont4),
                                   ),
                                 ),
-                              );
-                            },
+                                Text(
+                                  'Join us for a magical night where music fills the air and memories are made under the stars. Let the rhythm guide you into a journey of joy, connection, and celebration',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: Font.normalFont6,
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => EventDetailPage(
+                                          name: profiles[index]['name'],
+                                          description:
+                                          'Join us for a magical night where music fills the air and memories are made under the stars. This unforgettable evening will feature live bands and DJ sets playing everything from soulful tunes to high-energy dance tracks, all set in a beautiful open-air venue perfect for stargazing and soaking in the vibe.' *
+                                              1, profile: {}, index: index,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: const Text(
+                                    '...Read more',
+                                    style: TextStyle(color: Colors.pink, fontWeight: FontWeight.bold, fontSize: 13),
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    //Image.asset('image/Cal.png'),
+                                    Icon(Icons.calendar_month_outlined, color: Colors.black54, size: 18,),
+                                    SizedBox(width: 5),
+                                    Text('Dec 12, 2025', style: TextStyle(fontSize: 12),),
+                                    SizedBox(width: 10),
+                                    Icon(Icons.watch_later_outlined, color: Colors.black54,size: 18,),
+                                    SizedBox(width: 5),
+                                    Text('08:07Am',style: TextStyle(fontSize: 12),),
+                                  ],
+                                ),
+                                const SizedBox(height: 5),
+                              ],
+                            ),
                           ),
-                            ],
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ),
-              ],
+                  );
+                },
+              ),
             ),
-          ),
+          ],
         ),
-        bottomNavigationBar: CustomBottomNavBar(screenWidth: screenWidth),
-      );
+      ),
+      bottomNavigationBar: CustomBottomNavBar(screenWidth: screenWidth),
+    );
   }
 }

@@ -120,7 +120,7 @@ class _SignUpState extends State<SignUp> {
 
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(top: 337),
+              padding: const EdgeInsets.only(top: 315),
               child: Container(
                 decoration:  BoxDecoration(
                   color: Colors.white,
@@ -131,7 +131,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
