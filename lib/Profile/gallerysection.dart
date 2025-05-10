@@ -109,12 +109,13 @@ class PictureWidget extends StatelessWidget {
     ];
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
       child: GridView.count(
         shrinkWrap: true,
         crossAxisCount: 4,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
+        mainAxisSpacing: 2,
+        crossAxisSpacing: 2,
         childAspectRatio: 0.65,
         physics: const NeverScrollableScrollPhysics(),
         children: List.generate(imageList.length, (index) {
@@ -129,7 +130,7 @@ class PictureWidget extends StatelessWidget {
               );
             },
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(2),
               child: Image.asset(imageList[index], fit: BoxFit.cover),
             ),
           );
@@ -220,12 +221,13 @@ class VideoWidget extends StatelessWidget {
     ];
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
       child: GridView.count(
         shrinkWrap: true,
         crossAxisCount: 4,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
+        mainAxisSpacing: 5,
+        crossAxisSpacing: 5,
         childAspectRatio: 0.65,
         physics: const NeverScrollableScrollPhysics(),
         children: List.generate(gifList.length, (index) {
@@ -238,7 +240,7 @@ class VideoWidget extends StatelessWidget {
               );
             },
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(2),
               child: Image.asset(gifList[index], fit: BoxFit.cover),
             ),
           );

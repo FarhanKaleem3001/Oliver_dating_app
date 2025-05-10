@@ -29,6 +29,7 @@ class ProfileDetailScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: CustomScrollView(
           slivers: [

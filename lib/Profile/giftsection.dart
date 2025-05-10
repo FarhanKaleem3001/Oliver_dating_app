@@ -62,6 +62,7 @@ class _GiftSectionState extends State<GiftSection> {
           const SizedBox(height: 10),
 
           Container(
+            color: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             child: GridView.count(
               shrinkWrap: true,

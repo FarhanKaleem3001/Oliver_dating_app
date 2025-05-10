@@ -37,7 +37,6 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Stack(
         children: [
@@ -53,15 +52,12 @@ class _SignInState extends State<SignIn> {
                     child: VideoPlayer(provider.controller),
                   ),
                 ),
-              )
-                  : const SizedBox();
+              ): const SizedBox();
             },
           ),
-         
-
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(top: 398),
+              padding: const EdgeInsets.only(top: 415),
               child: Container(
                 decoration:  BoxDecoration(
                   color: Colors.white,
@@ -98,7 +94,7 @@ class _SignInState extends State<SignIn> {
                           Text('Email', style: TextStyle(color: login, fontSize: 18, fontWeight: FontWeight.bold)),
                         ],
                       ),
-                      const SizedBox(height: 8),
+
                       TextField(
                         controller: emailController,
                         style: TextStyle(color: category),
@@ -123,7 +119,7 @@ class _SignInState extends State<SignIn> {
                           Text('Password', style: TextStyle(color: login, fontSize: 18, fontWeight: FontWeight.bold)),
                         ],
                       ),
-                      const SizedBox(height: 8),
+
                       Consumer<ProfileProvider>(
                         builder: (context, passwordProvider, child) {
                           return TextField(
@@ -189,7 +185,6 @@ class _SignInState extends State<SignIn> {
                           child: Text("LOGIN", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20)),
                         ),
                       ),
-            
                     ],
                   ),
                 ),

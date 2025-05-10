@@ -57,9 +57,17 @@ class _BlogPageState extends State<BlogPage> {
                   final profileImage = imageList[index % imageList.length];
 
                   return Card(
+                    elevation: 8,
+                    shadowColor: Colors.black.withOpacity(0.5),
                     color: Colors.white,
-                    margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                    margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    // color: Colors.white,
+                    // margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                    // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                    //
                     child: Padding(
                       padding: const EdgeInsets.all(10),
                       child: Row(

@@ -96,9 +96,9 @@ class _PhotoPageState extends State<PhotoPage> {
                         child: Center(
                           child: Wrap(
                             alignment: WrapAlignment.center,
-                            spacing: 10,
+                            spacing: 25,
                             runSpacing: 20,
-                            children: List.generate(6, (index) {
+                            children: List.generate(9, (index) {
                               return Stack(
                                 children: [
                                   Container(

@@ -48,14 +48,17 @@ class _HomeState extends State<Home> {
                         ),
                         child: SafeArea(
                           child: SizedBox(
+                            height: 650,
 
-                            height: 580,
+                           // height: MediaQuery.of(context).size.height ,
+                            width: double.infinity,
                             child: GestureDetector(
                               onTap: () {
 
                               },
                               child: CardSwiper(
                                 cardsCount: profiles.length,
+                               // numberOfCardsDisplayed: 1,
                                 onSwipe: (prevIndex, currentIndex, direction) {
                                   return true;
                                 },
@@ -68,8 +71,6 @@ class _HomeState extends State<Home> {
                                   final profile = profiles[index];
                                   return ProfileCard(profile: profile, index: index);
                                 },
-
-
                                 padding: EdgeInsets.zero,
                               ),
                             ),

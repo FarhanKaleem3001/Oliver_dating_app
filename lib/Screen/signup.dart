@@ -120,7 +120,7 @@ class _SignUpState extends State<SignUp> {
 
           SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(top: 315),
+              padding: const EdgeInsets.only(top: 340),
               child: Container(
                 decoration:  BoxDecoration(
                   color: Colors.white,
@@ -188,7 +188,7 @@ class _SignUpState extends State<SignUp> {
                         ],
                       ),
             
-                      const SizedBox(height: 8),
+
                       Container(
                         margin: const EdgeInsets.only(bottom: 20),
                         child: TextField(
@@ -228,84 +228,67 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10),
+
                       Row(
                         children: [
                           SizedBox(
-                            width: 140,
-                            child: Container(
-                              padding:
-                              const EdgeInsets.symmetric(horizontal: 8),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.white,
-                              ),
-                              child: DropdownButtonHideUnderline(
-                                child: DropdownButton<String>(
-                                  value: loginProvider.selectedCountry,
-                                  isExpanded: true,
-                                  items: countryList.map((country) {
-                                    return DropdownMenuItem<String>(
-                                      value: country["code"],
-                                      child: Row(
-                                        children: [
-                                          const SizedBox(width: 5),
-                                          Text(country["flag"]!),
-                                          const SizedBox(width: 5),
-                                          Expanded(
-                                            child: Text(
-                                              country["name"]!,
-                                              style: const TextStyle(
-                                                  fontSize: 14),
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 5),
-                                          Text(
-                                            country["dial_code"]!,
-                                            style:
-                                            const TextStyle(fontSize: 14),
+                            width: 80,
+                            child: DropdownButtonHideUnderline(
+                              child: DropdownButton<String>(
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                underline: SizedBox.shrink(),
+                                value: loginProvider.selectedCountry,
+                                isExpanded: true,
+                                items: countryList.map((country) {
+                                  return DropdownMenuItem<String>(
+                                    value: country["code"],
+                                    child: Row(
+                                      children: [
+                                        const SizedBox(width: 5),
+                                        Text(country["flag"]!),
+                                        const SizedBox(width: 5),
+                                        Expanded(
+                                          child: Text(
+                                            country["name"]!,
+                                            style: const TextStyle(
+                                                fontSize: 14),
                                             overflow: TextOverflow.ellipsis,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                        const SizedBox(width: 5),
+                                        Text(
+                                          country["dial_code"]!,
+                                          style:
+                                          const TextStyle(fontSize: 14),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  loginProvider.setSelectedCountry(value!);
+                                },
+                                selectedItemBuilder:
+                                    (BuildContext context) {
+                                  return countryList.map<Widget>((country) {
+                                    return Row(
+                                      children: [
+                                        const SizedBox(width: 5),
+                                        Text(
+                                          country["dial_code"]!,
+                                          style:
+                                          const TextStyle(fontSize: 14),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ],
                                     );
-                                  }).toList(),
-                                  onChanged: (value) {
-                                    loginProvider.setSelectedCountry(value!);
-                                  },
-                                  selectedItemBuilder:
-                                      (BuildContext context) {
-                                    return countryList.map<Widget>((country) {
-                                      return Row(
-                                        children: [
-                                          Text(country["flag"]!),
-                                          const SizedBox(width: 5),
-                                          Expanded(
-                                            child: Text(
-                                              country["name"]!,
-                                              style: const TextStyle(
-                                                  fontSize: 14),
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                          const SizedBox(width: 5),
-                                          Text(
-                                            country["dial_code"]!,
-                                            style:
-                                            const TextStyle(fontSize: 14),
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ],
-                                      );
-                                    }).toList();
-                                  },
-                                ),
+                                  }).toList();
+                                },
                               ),
                             ),
                           ),
-                          const SizedBox(width: 10),
+                          const SizedBox(width: 5),
                           Expanded(
                             child: Container(
                               margin: const EdgeInsets.only(bottom: 20),
@@ -325,7 +308,7 @@ class _SignUpState extends State<SignUp> {
                                   contentPadding: const EdgeInsets.symmetric(
                                       horizontal: 10),
                                 ),
-                                keyboardType: TextInputType.emailAddress,
+                                keyboardType: TextInputType.phone,
                               ),
                             ),
                           ),
@@ -350,7 +333,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8),
+
                       Container(
                         margin: const EdgeInsets.only(bottom: 20),
                         child: Consumer<ProfileProvider>(
