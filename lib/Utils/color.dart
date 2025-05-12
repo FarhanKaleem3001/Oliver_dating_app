@@ -223,7 +223,7 @@ class Font{
   );
   static final TextStyle profileabout3 = GoogleFonts.openSans(
     color: Colors.black87,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.w500,
   );
   static final TextStyle profileFollow = GoogleFonts.openSans(

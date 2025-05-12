@@ -22,12 +22,12 @@ class _PhotoPageState extends State<PhotoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+backgroundColor: Colors.white,
       body:
       Padding(
         padding: const EdgeInsets.only(top:30),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,111 +44,115 @@ class _PhotoPageState extends State<PhotoPage> {
                 height: 20,
               ),
               Consumer<ProfileProvider>(
+
                 builder: (context, imageProvider, child) {
-                  return Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          showModalBottomSheet(
-                            context: context,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                            ),
-                            builder: (_) {
-                              return Padding(
-                                padding: const EdgeInsets.all(20),
-                                child: Wrap(
-                                  children: [
-                                    ListTile(
-                                      leading: const Icon(Icons.photo),
-                                      title: const Text("Pick from Gallery"),
-                                      onTap: () {
-                                        Navigator.pop(context);
-                                        imageProvider.pickImageFromGallery();
-                                      },
-                                    ),
-                                    ListTile(
-                                      leading: const Icon(Icons.camera_alt),
-                                      title: const Text("Take a Photo"),
-                                      onTap: () {
-                                        Navigator.pop(context);
-                                        imageProvider.pickImageFromCamera();
-                                      },
-                                    ),
-
-
-
-                                    if (imageProvider.pickedImages.isNotEmpty)
+                  return Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            showModalBottomSheet(
+                              context: context,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                              ),
+                              builder: (_) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Wrap(
+                                    children: [
                                       ListTile(
-                                        leading: const Icon(Icons.delete_forever),
-                                        title: const Text("Clear All"),
+                                        leading: const Icon(Icons.photo),
+                                        title: const Text("Pick from Gallery"),
                                         onTap: () {
                                           Navigator.pop(context);
-                                          imageProvider.clearAllImages();
+                                          imageProvider.pickImageFromGallery();
                                         },
                                       ),
-                                  ],
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        child: Center(
-                          child: Wrap(
-                            alignment: WrapAlignment.center,
-                            spacing: 25,
-                            runSpacing: 20,
-                            children: List.generate(9, (index) {
-                              return Stack(
-                                children: [
-                                  Container(
-                                    width: 100,
-                                    height: 150,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.shade300,
-                                      image: index < imageProvider.pickedImages.length
-                                          ? DecorationImage(
-                                        image: FileImage(imageProvider.pickedImages[index]),
-                                        fit: BoxFit.cover,
-                                      )
-                                          : null,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: index >= imageProvider.pickedImages.length
-                                        ? const Icon(Icons.camera_alt, size: 30, color: Colors.white)
-                                        : null,
-                                  ),
-                                  if (index < imageProvider.pickedImages.length)
-                                    Positioned(
-                                      top: 4,
-                                      right: 4,
-                                      child: GestureDetector(
+                                      ListTile(
+                                        leading: const Icon(Icons.camera_alt),
+                                        title: const Text("Take a Photo"),
                                         onTap: () {
-                                          imageProvider.removeImage(index);
+                                          Navigator.pop(context);
+                                          imageProvider.pickImageFromCamera();
                                         },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: Colors.black54,
-                                            shape: BoxShape.circle,
+                                      ),
+
+
+
+                                      if (imageProvider.pickedImages.isNotEmpty)
+                                        ListTile(
+                                          leading: const Icon(Icons.delete_forever),
+                                          title: const Text("Clear All"),
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                            imageProvider.clearAllImages();
+                                          },
+                                        ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: Center(
+                            child: Wrap(
+                              alignment: WrapAlignment.center,
+                              spacing: 15,
+                              runSpacing: 10,
+                              children: List.generate(9, (index) {
+                                return Stack(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 150,
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey.shade300,
+                                        image: index < imageProvider.pickedImages.length
+                                            ? DecorationImage(
+                                          image: FileImage(imageProvider.pickedImages[index]),
+                                          fit: BoxFit.cover,
+                                        )
+                                            : null,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: index >= imageProvider.pickedImages.length
+                                          ? const Icon(Icons.camera_alt, size: 30, color: Colors.white)
+                                          : null,
+                                    ),
+                                    if (index < imageProvider.pickedImages.length)
+                                      Positioned(
+                                        top: 4,
+                                        right: 4,
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            imageProvider.removeImage(index);
+                                          },
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: Colors.black54,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            padding: const EdgeInsets.all(4),
+                                            child: const Icon(Icons.close, size: 16, color: Colors.white),
                                           ),
-                                          padding: const EdgeInsets.all(4),
-                                          child: const Icon(Icons.close, size: 16, color: Colors.white),
                                         ),
                                       ),
-                                    ),
-                                ],
-                              );
-                            }),
+                                  ],
+                                );
+                              }),
+                            ),
                           ),
-                        ),
 
-                      ),
-                    ],
+                        ),
+                      ],
+                    ),
                   );
                 },
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(

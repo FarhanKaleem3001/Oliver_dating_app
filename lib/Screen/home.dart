@@ -30,6 +30,7 @@ class _HomeState extends State<Home> {
     //final profiles = profileProvider.profiles;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -42,44 +43,40 @@ class _HomeState extends State<Home> {
 
                     SizedBox(height: 20),
                     SafeArea(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: SafeArea(
-                          child: SizedBox(
-                            height: 650,
-
-                           // height: MediaQuery.of(context).size.height ,
-                            width: double.infinity,
-                            child: GestureDetector(
-                              onTap: () {
-
-                              },
-                              child: CardSwiper(
-                                cardsCount: profiles.length,
-                               // numberOfCardsDisplayed: 1,
-                                onSwipe: (prevIndex, currentIndex, direction) {
-                                  return true;
-                                },
-                                cardBuilder: (
-                                    BuildContext context,
-                                    int index,
-                                    int horizontalOffsetPercentage,
-                                    int verticalOffsetPercentage,
-                                    ) {
-                                  final profile = profiles[index];
-                                  return ProfileCard(profile: profile, index: index);
-                                },
-                                padding: EdgeInsets.zero,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: SafeArea(
+                            child: SizedBox(
+                              height: 650,
+                              width: double.infinity,
+                              child: GestureDetector(
+                                onTap: () {},
+                                child: Center(
+                                  child: CardSwiper(
+                                    cardsCount: profiles.length,
+                                    onSwipe: (prevIndex, currentIndex, direction) => true,
+                                    cardBuilder: (
+                                        BuildContext context,
+                                        int index,
+                                        int horizontalOffsetPercentage,
+                                        int verticalOffsetPercentage,
+                                        ) {
+                                      final profile = profiles[index];
+                                      return ProfileCard(profile: profile, index: index);
+                                    },
+                                    padding: EdgeInsets.zero,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
+                      )
 
-
-
-                      ),
                     ),
 
                   ],

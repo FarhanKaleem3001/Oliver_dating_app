@@ -233,6 +233,7 @@ class _SignUpState extends State<SignUp> {
                         children: [
                           SizedBox(
                             width: 80,
+
                             child: DropdownButtonHideUnderline(
                               child: DropdownButton<String>(
                                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -241,6 +242,7 @@ class _SignUpState extends State<SignUp> {
                                 isExpanded: true,
                                 items: countryList.map((country) {
                                   return DropdownMenuItem<String>(
+
                                     value: country["code"],
                                     child: Row(
                                       children: [

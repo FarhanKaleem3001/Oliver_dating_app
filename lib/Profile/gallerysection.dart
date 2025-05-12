@@ -226,8 +226,8 @@ class VideoWidget extends StatelessWidget {
       child: GridView.count(
         shrinkWrap: true,
         crossAxisCount: 4,
-        mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
+        mainAxisSpacing: 2,
+        crossAxisSpacing: 2,
         childAspectRatio: 0.65,
         physics: const NeverScrollableScrollPhysics(),
         children: List.generate(gifList.length, (index) {

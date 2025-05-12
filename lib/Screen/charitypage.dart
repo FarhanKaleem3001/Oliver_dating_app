@@ -33,6 +33,7 @@ class _CharityPageState extends State<CharityPage> {
     final favoriteProvider = Provider.of<ProfileProvider>(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [

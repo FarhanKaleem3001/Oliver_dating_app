@@ -196,7 +196,7 @@ class _SignUpFinalState extends State<SignUpFinal> {
     return GestureDetector(
       onTap: () => chipProvider.toggleChip(label),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
         decoration: BoxDecoration(
           color: isSelected ? login : Colors.white,
           borderRadius: BorderRadius.circular(30),
@@ -205,8 +205,9 @@ class _SignUpFinalState extends State<SignUpFinal> {
         child: Text(
           label,
           style: TextStyle(
-            color: isSelected ? Colors.white : Colors.black,
+            color: isSelected ? Colors.white : Colors.black54,
             fontWeight: FontWeight.w500,
+            fontSize: 14,
           ),
         ),
       ),

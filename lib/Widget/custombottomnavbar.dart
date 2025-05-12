@@ -24,6 +24,7 @@ class CustomBottomNavBar extends StatelessWidget {
     if (screenWidth > 500) return SizedBox.shrink();
 
     return BottomNavigationBar(
+      backgroundColor: Colors.white,
       currentIndex: navigationProvider.selectedIndex,
       onTap: (index) {
         navigationProvider.setIndex(index);

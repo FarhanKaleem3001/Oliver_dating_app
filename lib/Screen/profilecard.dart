@@ -32,7 +32,7 @@ class ProfileCard extends StatelessWidget {
             children: [
               Image.asset(
                 profile['image'],
-                fit: BoxFit.cover,
+               fit: BoxFit.cover,
                 width: double.infinity,
               ),
               Positioned(

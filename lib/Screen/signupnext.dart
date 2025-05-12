@@ -31,6 +31,7 @@ class _SignUpNextState extends State<SignUpNext> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
 
@@ -260,6 +261,7 @@ class _SignUpNextState extends State<SignUpNext> {
                   ),
 
                   Container(
+                    color: Colors.white,
                     margin: const EdgeInsets.only(bottom: 20),
                     child: TextField(
                       controller: genderController,
