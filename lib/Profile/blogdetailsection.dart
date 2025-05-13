@@ -37,72 +37,68 @@ class _BlogDetailSectionState extends State<BlogDetailSection> {
     final profileProvider = Provider.of<ProfileProvider>(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Header(),
-                      SizedBox(height: 20),
-                      SingleChildScrollView(
-                        child: Center(
-                          child: Column(
-                            children: [
-                              SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
+        child: Column(
+          children: [
 
-                                    Text('How to Cultivate Creativity: Tips to Unleash Your Inner Artist', style: Font.boldFont),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Column(
-                                      children: [
-                                        Center(
-                                          child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(20),
-                                            child: Image.asset(
-                                              'image/bv1.png',
-                                              width: 380,
-                                              height: 400,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Header(),
+            ),
 
 
 
 
-                                    SizedBox(height: 20),
-                                    Text('About Blog',  style: TextStyle(fontSize: 18, color: login, fontWeight: FontWeight.bold),),
-                                    Text(
-                                      widget.description,
-                                      textAlign: TextAlign.justify,
-                                      style: TextStyle(fontSize: 16),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'How to Cultivate Creativity: Tips to Unleash Your Inner Artist',
+                      style: Font.boldFont,
+                    ),
+                    SizedBox(height: 20),
+
+                    Center(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          'image/bv1.png',
+                          width: 380,
+                          height: 400,
+                          fit: BoxFit.cover,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+
+                    SizedBox(height: 20),
+
+                    Text(
+                      'About Blog',
+                      style: TextStyle(fontSize: 18, color: login, fontWeight: FontWeight.bold),
+                    ),
+
+                    SizedBox(height: 8),
+
+                    Text(
+                      widget.description,
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 16),
+                    ),
+
+                    SizedBox(height: 30),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(screenWidth: screenWidth),
     );
   }
+
 }

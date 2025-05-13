@@ -37,250 +37,243 @@ class _CharityDetailSectionState extends State<CharityDetailSection> {
     final profileProvider = Provider.of<ProfileProvider>(context);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Center(
-                  child: Column(
-                    children: [
-                      Header(),
-                      SizedBox(height: 20),
-                      SingleChildScrollView(
-                        child: Center(
-                          child: Column(
-                            children: [
-                              SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
+        child: Column(
+          children: [
 
-                                    Text('Building a Solar-Powered School in a Rural Village.', style: Font.boldFont),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Column(
-                                      children: [
-                                        Center(
-                                          child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(20),
-                                            child: Image.asset(
-                                              'image/cv1.png',
-                                              width: 380,
-                                              height: 400,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Header(),
+            ),
 
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 20),
+                    Text(
+                      'Building a Solar-Powered School in a Rural Village.',
+                      style: Font.boldFont,
+                    ),
+                    SizedBox(height: 20),
 
-
-
-                                    SizedBox(height: 20),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: const [
-                                                Text('Fund Required', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                                                Text('\$700', style: TextStyle(fontSize: 14)),
-                                              ],
-                                            ),
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.end,
-                                              children: const [
-                                                Text('Feb 05,2025', style: TextStyle(fontWeight: FontWeight.bold)),
-                                                Text('(25 days left)', style: TextStyle(fontSize: 12, color: Colors.grey)),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      //  const SizedBox(height: 10),
-
-                                        Stack(
-                                          alignment: Alignment.center,
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius: BorderRadius.circular(10),
-                                              child: LinearProgressIndicator(
-                                                value: 0.55,
-                                                minHeight: 8,
-                                                backgroundColor: Colors.grey[300],
-                                                valueColor: AlwaysStoppedAnimation<Color>(login),
-                                              ),
-                                            ),
-                                            Container(
-                                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                                              decoration: BoxDecoration(
-                                                color: Colors.grey[300],
-                                                borderRadius: BorderRadius.circular(8),
-                                              ),
-                                              child: const Text(
-                                                '55%',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(height: 20),
-                                        Row(
-                                          children: [
-                                            Expanded(
-                                              child: ElevatedButton(
-                                                onPressed: () {
-
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor: btcolor,
-                                                  padding:
-                                                  const EdgeInsets.symmetric(vertical: 5),
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.circular(8),
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  "\$10",
-                                                  style: TextStyle(
-                                                      color: notcolor,
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 15),
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(width: 10),
-                                            Expanded(
-                                              child: ElevatedButton(
-                                                onPressed: () {
-
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor: btcolor,
-                                                  padding:
-                                                  const EdgeInsets.symmetric(vertical: 8),
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.circular(8),
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  "\$10",
-                                                  style: TextStyle(
-                                                      color: notcolor,
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 15),
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(width: 10),
-                                            Expanded(
-                                              child: ElevatedButton(
-                                                onPressed: () {
-
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor: btcolor,
-                                                  padding:
-                                                  const EdgeInsets.symmetric(vertical: 8),
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.circular(8),
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  "\$10",
-                                                  style: TextStyle(
-                                                      color: notcolor,
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 15),
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(width: 10),
-                                            Expanded(
-                                              child: ElevatedButton(
-                                                onPressed: () {
-
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor: btcolor,
-                                                  padding:
-                                                  const EdgeInsets.symmetric(vertical: 8),
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.circular(8),
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  "\$10",
-                                                  style: TextStyle(
-                                                      color: notcolor,
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 15),
-                                                ),
-                                              ),
-                                            ),
-                                            const SizedBox(width: 10),
-                                            Expanded(
-                                              child: ElevatedButton(
-                                                onPressed: () {
-
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor: donatcolor,
-                                                  padding:
-                                                  const EdgeInsets.symmetric(vertical: 8),
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.circular(8),
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  "Donate",
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 15),
-                                                ),
-                                              ),
-                                            ),
-
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-
-                                    SizedBox(height: 20),
-                                    Text('About Charity',  style: TextStyle(fontSize: 18, color: login, fontWeight: FontWeight.bold),),
-
-                                    Text(
-                                      widget.description,
-                                      textAlign: TextAlign.justify,
-                                      style: TextStyle(fontSize: 16),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+                    Center(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          'image/cv1.png',
+                          width: 380,
+                          height: 400,
+                          fit: BoxFit.cover,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+
+                    SizedBox(height: 20),
+
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text('Fund Required', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                            Text('\$700', style: TextStyle(fontSize: 14)),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: const [
+                            Text('Feb 05,2025', style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text('(25 days left)', style: TextStyle(fontSize: 12, color: Colors.grey)),
+                          ],
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 10),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: LinearProgressIndicator(
+                            value: 0.55,
+                            minHeight: 8,
+                            backgroundColor: Colors.grey[300],
+                            valueColor: AlwaysStoppedAnimation<Color>(login),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Text(
+                            '55%',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: 20),
+
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: btcolor,
+                              padding:
+                              const EdgeInsets.symmetric(vertical: 5),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              "\$10",
+                              style: TextStyle(
+                                  color: notcolor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: btcolor,
+                              padding:
+                              const EdgeInsets.symmetric(vertical: 8),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              "\$10",
+                              style: TextStyle(
+                                  color: notcolor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: btcolor,
+                              padding:
+                              const EdgeInsets.symmetric(vertical: 8),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              "\$10",
+                              style: TextStyle(
+                                  color: notcolor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: btcolor,
+                              padding:
+                              const EdgeInsets.symmetric(vertical: 8),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              "\$10",
+                              style: TextStyle(
+                                  color: notcolor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {
+
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: donatcolor,
+                              padding:
+                              const EdgeInsets.symmetric(vertical: 8),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text(
+                              "Donate",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
+                          ),
+                        ),
+
+                      ],
+                    ),
+
+
+
+                SizedBox(height: 20),
+
+
+                    Text(
+                      'About Charity',
+                      style: TextStyle(fontSize: 18, color: login, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      widget.description,
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(height: 30),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: CustomBottomNavBar(screenWidth: screenWidth),
     );
   }
+
 }
